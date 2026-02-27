@@ -1,0 +1,74 @@
+{
+    "site": {
+      "name": "Studio Design",
+      "tagline": "ARCHITECTURE INTERIOR",
+      "description": "We design experiences and elevate lives.",
+      "email": "connect.studiodesign@gmail.com",
+      "phone": "+91 1234567890",
+      "address": {
+        "line1": "#64, 4th cross Manjunath layout,  ",
+        "line2": "RT nagar post",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zip": "560032"
+      },
+      "hours": "Office hours Mon-Sat 10am - 7:00pm IST",
+      "socialMedia": {
+        "facebook": "https://facebook.com",
+        "instagram": "https://instagram.com",
+        "linkedin": "https://linkedin.com",
+        "youtube": "https://youtube.com",
+        "pinterest": "https://pinterest.com"
+      },
+      "legal": {
+        "privacyPolicy": "/privacy",
+        "termsAndConditions": "/terms",
+        "refundPolicy": "/refund"
+      }
+    },
+    "hero": {
+      "subtitle": "WE DESIGN EXPERIENCES AND ELEVATE LIVES",
+      "title": "Craft Your Perfect",
+      "titleHighlight": "Retirement Dream House",
+      "titleContinue": "In Just Two Months, Centred Around",
+      "features": ["Wellness", "Nature", "Tranquility", "Health", "Age Friendly Features"],
+      "ctaText": "I'm interested. Show me how",
+      "ctaSubtext": "Click the button to watch a free tutorial",
+      "backgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop"
+    },
+    "about": {
+      "title": "About me",
+      "quote": "Design mixed with a little compassion goes a long way in crafting enriching experiences, elevating lives & building dreams",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop",
+      "paragraphs": [
+        "You probably don't see it, but there's a gap between good looking spaces and quality living spaces.",
+        "Thoughtful circulation and healthy ventilation are but sacrifices, made to keep up with the numbers.",
+        "This gap is easier to fill than you think. Design mixed with just a little compassion can go a long way."
+      ],
+      "ctaText": "TAKE ME TO THE VIDEO",
+      "ctaSubtext": "Click the button to watch a free tutorial"
+    },
+    "services": {
+      "title": "IT TAKES AN ARMY..",
+      "subtitle": "But We've Got You Covered!",
+      "items": [
+        { "icon": "star", "title": "Efficient Project Management", "description": "Systematic and strategic management to ensure handover timeline and budget health" },
+        { "icon": "search", "title": "Complete Transparency", "description": "No more confusion regarding budget, quality and timeline" },
+        { "icon": "palette", "title": "Unique and Original Designs", "description": "Hand crafted, unique and innovative options, tailor-made for you" },
+        { "icon": "phone", "title": "Easy Coordination", "description": "We're only one call away from any doubts or questions" },
+        { "icon": "smile", "title": "Stress-Free Execution", "description": "Sit back and relax while we take care of execution" },
+        { "icon": "handshake", "title": "Hand-Held Design Process", "description": "Our team walks you through all important decisions" }
+      ]
+    },
+    "servicesList": {
+      "title": "Our Services",
+      "services": ["Residential Interior Design", "Commercial Interior Design", "Architectural Design Services", "Restaurant Design"]
+    },
+    "cta": {
+      "sections": [
+        { "id": "cta-1", "background": "white", "title": "Our Work", "buttonText": "SEE MORE PROJECTS", "buttonLink": "/projects" },
+        { "id": "cta-2", "background": "dark", "preTitle": "Click on the button to watch a", "preHighlight": "FREE TUTORIAL", "preContinue": "on how you can craft your own", "highlight": "Perfect Retirement Dream Home", "buttonText": "TAKE ME TO THE FREE TUTORIAL", "buttonLink": "#tutorial" },
+        { "id": "cta-3", "background": "dark", "preTitle": "ARE YOU READY?", "title": "Let's Get Started", "buttonText": "WATCH A FREE VIDEO", "buttonLink": "#tutorial" }
+      ]
+    }
+  }

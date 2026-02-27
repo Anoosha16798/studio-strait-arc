@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, sans-serif;
+    color: #2D2D2D;
+    background-color: #FFFFFF;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: Playfair Display, serif; }
+}
+
+@layer utilities {
+  .bg-primary-600 { background-color: #942e06 !important; }
+  .text-primary-600 { color: rgba(148, 46, 6, 0.9) !important; }
+  .border-primary-600 { border-color: #942e06 !important; }
+}
+
+@layer components {
+  /* TIGHTER HORIZONTAL MARGINS: Matching your requested standard padding */
+  .container-custom {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  /* REDUCED SECTION SPACING: Drastically reduced to remove "empty white space" */
+  .section-padding {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  /* REFINED TYPOGRAPHY: Scaling down "Craft" and other headers */
+  .heading-xl {
+    font-size: 1.5rem; /* Compact for mobile */
+    font-family: Playfair Display, serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 768px) {
+    .heading-xl { font-size: 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-xl { font-size: 2.25rem; } /* Professional, not "too big" */
+  }
+
+  .heading-lg {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  @media (min-width: 1024px) {
+    .heading-lg { font-size: 1.75rem; }
+  }
+
+  /* REDUCED COMPONENT GAPS */
+  .gap-responsive {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .gap-responsive { gap: 2.5rem; }
+  }
+}

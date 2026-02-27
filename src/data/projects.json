@@ -1,0 +1,152 @@
+{
+    "categories": [
+      { "id": "all", "name": "All", "slug": "all" },
+      { "id": "residential", "name": "Residential", "slug": "residential" },
+      { "id": "commercial", "name": "Commercial", "slug": "commercial" },
+      { "id": "hospitality", "name": "Hospitality", "slug": "hospitality" }
+    ],
+    "projects": [
+      {
+        "id": "project-1",
+        "title": "Three Fold Groove",
+        "slug": "three-fold-groove",
+        "category": "residential",
+        "location": "Bangalore, India",
+        "year": "2023",
+        "thumbnail": "/assets/three_fold_groove/1.jpg",
+        "featured": true,
+        "description": "The Three Fold Groove is a warm, traditional contemporary home designed for a young couple and their baby daughter. Soft arches and gentle curves were intentionally introduced to eliminate sharp edges, creating a safer and more fluid environment for their newborn. Paired with rattan veneer and solid wood, the space feels nurturing, elegant, and timeless",
+        "details": {
+          "area": "1800 sq ft",
+          "style": "Contemporary",
+          "duration": "3 months",
+          "client": "Private Residence"
+        },
+     "media": [
+  { 
+    "type": "image", 
+    "url": "/assets/three_fold_groove/1.jpg", 
+    "caption": "Living room with custom furniture" 
+  },
+  { 
+    "type": "image", 
+    "url": "/assets/three_fold_groove/2.jpg", 
+    "caption": "Dining area detail" 
+  },
+  { 
+    "type": "image", 
+    "url": "/assets/three_fold_groove/3.jpg", 
+    "caption": "Bedroom suite" 
+  },
+  { 
+    "type": "video", 
+    "url": "/assets/three_fold_groove/V1.mp4" 
+  }
+]
+
+      },
+      {
+        "id": "project-2",
+        "title": "Oasis",
+        "slug": "oasis",
+        "category": "residential",
+        "location": "Mumbai, India",
+        "year": "2023",
+        "autoplayVideo": "/assets/oasis/v1.mp4",
+        "thumbnail": "/assets/oasis/1.jpg",
+        "featured": true,
+        "description": "Oasis is a warm contemporary retreat in Bangalore, designed for a Singapore-based family seeking a calm and welcoming space to return to and to share as a serene Airbnb when they’re away. With earthy textures, soft neutrals, and warm wood tones, the home blends modern minimalism with effortless comfort and quiet elegance.",
+        "details": {
+          "area": "1500 sq ft",
+          "style": "Modern Light",
+          "duration": "1.5 months",
+          "client": "Private Residence"
+        },
+        "media": [
+          { 
+            "type": "image", 
+            "url": "/assets/oasis/1.jpg", 
+            "caption": "Hall with wall painting" 
+          },
+          { 
+            "type": "image", 
+            "url": "/assets/oasis/2.png", 
+            "caption": "Kids room sit-out" 
+          },
+          { 
+            "type": "image", 
+            "url": "/assets/oasis/3.JPG", 
+            "caption": "Living space overview" 
+          },
+          { 
+            "type": "video", 
+            "url": "/assets/oasis/v1.mp4", 
+            "caption": "Cozy corner" 
+          }
+        ]
+      },
+{
+    "id": "project-3",
+    "title": "Srujana",
+    "slug": "modern-minimalist-living",
+    "category": "residential",
+    "location": "Pune, India",
+    "year": "2023",
+    "thumbnail": "/assets/srujana/1.png",
+    "featured": true,
+    "description": "Srujana is a traditional home designed for a couple and their son, rooted in their love for art, culture, and heritage. The space celebrates vibrant colours, rich textures, and timeless brass elements, creating an atmosphere that feels warm, expressive, and deeply personal. Thoughtfully layered details bring together tradition and artistry in a refined, contemporary way.",
+    "details": {
+      "area": "1200 sq ft",
+      "style": "Contemporary Minimalist",
+      "duration": "2 months",
+      "client": "Private Residence"
+    },
+    "media": [
+      { "type": "image", "url": "/assets/srujana/1.png", "caption": "Living room with natural light" },
+      { "type": "image", "url": "/assets/srujana/2.png" },
+      { "type": "image", "url": "/assets/srujana/3.png", "caption": "Bedroom seating area" },
+      { "type": "video", "url": "/assets/oasis/v1.mp4", "caption": "Luxury bedding detail" }
+    ]
+  },
+  {
+    "id": "project-4",
+    "title": "Kaira",
+    "slug": "Kaira",
+    "category": "residential",
+    "location": "Pune, India",
+    "year": "2023",
+    "thumbnail": "/assets/kaira/1.PNG",
+    "featured": true,
+    "description": "Kaira is a modern Indian contemporary home designed for a middle-aged couple and their son. Rooted in warmth and familiarity, the space blends clean lines with natural wood tones, soft neutrals, and subtle Indian sensibilities. Balanced, practical, and refined, Kaira is a home that feels modern yet deeply connected to everyday Indian living.",
+    "details": {
+      "area": "1200 sq ft",
+      "style": "Contemporary Minimalist",
+      "duration": "2 months",
+      "client": "Private Residence"
+    },
+    "media": [
+      { "type": "image", "url": "/assets/kaira/1.PNG", "caption": "Living room with natural light" },
+      { "type": "image", "url": "/assets/kaira/2.PNG" },
+      { "type": "image", "url": "/assets/kaira/3.jpeg", "caption": "Bedroom seating area" },
+      { "type": "video", "url": "/assets/kaira/v1.MP4", "caption": "Luxury bedding detail" }
+    ]
+  },
+  {
+    "id": "project-5",
+    "title": "AIKYA",
+    "slug": "AIKYA",
+    "category": "residential",
+    "location": "Pune, India",
+    "year": "2023",
+    "thumbnail": "/assets/kaira/1.PNG",
+    "featured": true,
+    "description": "Aikya is a Japandi-inspired home designed for a couple, blending Japanese minimalism with Indian warmth. Clean lines, natural wood, soft textures, and earthy tones come together to create a space that feels calm, balanced, and deeply personal where two worlds meet in harmony.",
+    "details": {
+      "area": "1200 sq ft",
+      "style": "Contemporary Minimalist",
+      "duration": "2 months",
+      "client": "Private Residence"
+    }
+  }
+]
+}

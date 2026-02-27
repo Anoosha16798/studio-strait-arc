@@ -1,0 +1,18 @@
+{
+    "title": "OUR LATEST IN",
+    "subtitle": "Designing Dream Homes",
+    "posts": [
+      {
+        "id": "blog-1",
+        "title": "Modern Design Trends",
+        "slug": "modern-design-trends",
+        "excerpt": "Discover the latest trends in interior design.",
+        "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
+        "category": "Design Tips",
+        "author": "Studio Design Team",
+        "date": "2024-01-15",
+        "readTime": "5 min read",
+        "featured": true
+      }
+    ]
+  }

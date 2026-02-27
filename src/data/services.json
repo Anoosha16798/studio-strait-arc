@@ -1,0 +1,95 @@
+{
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive design solutions for every need",
+      "description": "From concept to completion, we offer a full range of architecture and interior design services."
+    },
+    "mainServices": [
+      {
+        "id": "service-1",
+        "title": "Residential Architecture",
+        "description": "Custom home design that reflects your lifestyle and personality. From villas to apartments, we create spaces that feel like home.",
+        "icon": "home",
+        "features": [
+          "Custom Home Design",
+          "Renovation & Remodeling",
+          "Space Planning",
+          "3D Visualization"
+        ]
+      },
+      {
+        "id": "service-2",
+        "title": "Interior Design",
+        "description": "Thoughtful interiors that inspire and delight. We blend aesthetics with functionality to create beautiful, livable spaces.",
+        "icon": "palette",
+        "features": [
+          "Complete Interior Design",
+          "Furniture Selection",
+          "Color Consultation",
+          "Lighting Design"
+        ]
+      },
+      {
+        "id": "service-3",
+        "title": "Commercial Spaces",
+        "description": "Innovative designs for offices, retail, and hospitality. We create environments that enhance productivity and customer experience.",
+        "icon": "building",
+        "features": [
+          "Office Design",
+          "Retail Spaces",
+          "Restaurant Design",
+          "Brand Integration"
+        ]
+      }
+    ],
+    "itTakesAnArmy": {
+      "title": "It Takes an Army",
+      "subtitle": "Behind every successful project is a team of dedicated professionals",
+      "description": "We believe in collaboration. Our network of skilled craftsmen, contractors, and specialists ensures that every aspect of your project is handled with expertise and care.",
+      "benefits": [
+        {
+          "id": "benefit-1",
+          "title": "Expert Craftsmen",
+          "description": "We work with the finest carpenters, masons, and artisans who bring our designs to life with precision.",
+          "icon": "tools"
+        },
+        {
+          "id": "benefit-2",
+          "title": "Trusted Contractors",
+          "description": "Our network of reliable contractors ensures quality execution and timely completion.",
+          "icon": "users"
+        },
+        {
+          "id": "benefit-3",
+          "title": "Quality Materials",
+          "description": "We source premium materials from trusted suppliers, ensuring durability and aesthetics.",
+          "icon": "box"
+        },
+        {
+          "id": "benefit-4",
+          "title": "Project Coordination",
+          "description": "Our dedicated project managers coordinate all aspects, so you do not have to worry about a thing.",
+          "icon": "clipboard"
+        }
+      ]
+    },
+    "servicesList": {
+      "title": "What We Offer",
+      "subtitle": "Comprehensive services to bring your vision to life",
+      "darkBackground": true,
+      "items": [
+        "Architectural Design & Planning",
+        "Interior Design & Styling",
+        "3D Visualization & Walkthroughs",
+        "Space Planning & Optimization",
+        "Furniture Design & Selection",
+        "Lighting Design & Consultation",
+        "Color Consultation & Material Selection",
+        "Project Management & Execution",
+        "Renovation & Remodeling",
+        "Landscape Design",
+        "Sustainable Design Solutions",
+        "Post-Completion Support"
+      ]
+    }
+  }

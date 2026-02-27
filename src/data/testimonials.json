@@ -1,0 +1,37 @@
+{
+    "title": "What Our Clients Say",
+    "subtitle": "Real experiences from real people",
+    "testimonials": [
+      {
+        "id": "test-1",
+        "name": "Three Fold Groove Client",
+        "role": "Homeowner",
+        "image": "/assets/three_fold_groove/1.jpg",
+        "quote": "While searching for an interior designer, we consulted multiple agencies but never felt fully aligned with their approach. With Sachitra, everything clicked instantly. She truly understood what we were looking for and focused...",
+        "videoUrl": null,
+        "videoThumbnail": "/assets/three_fold_groove/V1.mp4",
+        "rating": 5,
+        "featured": true,
+        "projectImages": [
+          "/assets/three_fold_groove/1.jpg",
+          "/assets/three_fold_groove/3.jpg"
+        ]
+      },
+      {
+        "id": "test-2",
+        "name": "Oasis",
+        "role": "Homeowner",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+        "quote": "I had the pleasure of working with Sachitra on redesigning my entire unit, and I'm thrilled with the results. The hall, with its striking wall painting, stands out as a welcoming feature for guests, while the kids' room sit-",
+        "videoUrl": null,
+        "videoThumbnail": "/assets/oasis/v1.mp4",
+        "rating": 5,
+        "featured": true,
+        "projectImages": [
+          "/assets/oasis/1.jpg",
+          "/assets/oasis/3.jpg"
+        ]
+      }
+
+    ]
+  }

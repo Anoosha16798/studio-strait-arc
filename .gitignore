@@ -1,0 +1,15 @@
+# Dependency folders
+node_modules/
+jspm_packages/
+
+# Build outputs
+dist/
+build/
+
+# Environment variables (Sensitive data!)
+.env
+.env.local
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,123 @@
+{
+    "hero": {
+      "title": "About Studio Design",
+      "subtitle": "Studio Strait Arc was founded on a simple yet powerful belief that every space should tell a story",
+      "description": "Led by architect Sachitra Ravichander, the studio brings together creativity, clarity, and thoughtful functionality to craft environments that feel both intentional and deeply personal. Each project begins with a careful understanding of the client’s vision, lifestyle, and aspirations, allowing every design to unfold with purpose and meaning. Working across residential, commercial, and bespoke spaces, Studio Strait Arc approaches design as a balance between artistic expression and practical execution. With a strong focus on spatial harmony, material integrity, and refined detailing, the studio creates environments that are elegant, enduring, and experiential. At Studio Strait Arc, each space is approached as a blank canvas carefully layered with light, material, and form resulting in designs that don’t just look beautiful, but work effortlessly for everyday life."
+    },
+    "founder": {
+      "name": "Meet Sachitra Ravichander",
+      "title": "Architect & Interior Designer – Studio Strait Arc",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop",
+      "bio": "With a strong belief that design should move beyond trends and temporary aesthetics, Sachitra established the studio as a space where creativity is guided by clarity, purpose, and refined detailing. Her approach blends artistic sensitivity with practical precision, ensuring each project feels intentional and enduring.",
+      "quote": "Design is not just what it looks like and feels like. Design is how it works.",
+      "story": "For Sachitra, architecture and interiors are not just about how a space looks, but how it functions, evolves, and resonates with the people who experience it. Through Studio Strait Arc, she crafts environments that are timeless, personal, and carefully considered."
+    },
+    "layers": {
+      "title": "Our Design Process",
+      "subtitle": "A systematic approach to creating exceptional spaces",
+      "items": [
+        {
+          "id": "layer-1",
+          "title": "Understanding You (Yes, We Ask a Lot of Questions 😉)",
+          "description": "Every project begins with listening. We dive into your lifestyle, daily routines, habits, likes, dislikes, and even that one corner you’ve always imagined having. Because great design starts with understanding people not just drawing plans."
+        },
+        {
+          "id": "layer-2",
+          "title": "Concept & Mood (Where the Magic Begins ✨",
+          "description": "Once we’ve gathered all the insights, we translate them into a clear design direction. Through mood boards, material selections, and spatial planning, we shape a concept that feels aligned, exciting, and completely you."
+        },
+        {
+          "id": "layer-3",
+          "title": "Designing the Details",
+          "description": "This is where ideas turn into real, workable designs. We balance aesthetics with functionality making sure the space is not only beautiful, but also practical enough for everyday life (because stunning spaces should still survive Monday mornings)."
+        },
+        {
+          "id": "layer-4",
+          "title": "Execution (We Handle the Chaos So You Don’t Have To)",
+          "description": "From coordination to site supervision, we ensure everything runs as smoothly as possible. Behind the scenes, we manage the details, solve the surprises, and keep the process on track calmly and carefully."
+        },
+        {
+          "id": "layer-5",
+          "title": "The Handover (The Best Part 🤍)",
+          "description": "Finally, we reveal a finished space that reflects your story, your needs, and your vision. And yes this is usually the moment with the biggest smiles."
+        }
+      ]
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do",
+      "items": [
+        {
+          "id": "value-1",
+          "title": "Client-Centric Approach",
+          "description": "Your vision is our priority. We listen, understand, and deliver designs that exceed expectations."
+        },
+        {
+          "id": "value-2",
+          "title": "Innovation & Creativity",
+          "description": "We push boundaries and explore new ideas to create unique, timeless designs."
+        },
+        {
+          "id": "value-3",
+          "title": "Quality & Craftsmanship",
+          "description": "We never compromise on quality, working with the finest craftsmen and materials."
+        },
+        {
+          "id": "value-4",
+          "title": "Transparency",
+          "description": "Clear communication, honest timelines, and transparent pricing are our commitments to you."
+        },
+        {
+          "id": "value-5",
+          "title": "Timely Delivery",
+          "description": "We respect your time and ensure projects are completed within agreed timelines."
+        }
+      ]
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Talented professionals dedicated to bringing your vision to life",
+      "members": [
+        {
+          "id": "team-1",
+          "name": "Priya Sharma",
+          "role": "Founder & Principal Architect",
+          "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop",
+          "bio": "15+ years of experience in residential and commercial architecture",
+          "specialization": "Architecture, Space Planning"
+        },
+        {
+          "id": "team-2",
+          "name": "Rahul Mehta",
+          "role": "Senior Interior Designer",
+          "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+          "bio": "Specializes in contemporary and minimalist interior design",
+          "specialization": "Interior Design, Color Theory"
+        },
+        {
+          "id": "team-3",
+          "name": "Anjali Desai",
+          "role": "Project Manager",
+          "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop",
+          "bio": "Ensures seamless execution and timely delivery of all projects",
+          "specialization": "Project Management, Client Relations"
+        },
+        {
+          "id": "team-4",
+          "name": "Vikram Singh",
+          "role": "3D Visualization Specialist",
+          "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop",
+          "bio": "Creates stunning 3D renders and virtual walkthroughs",
+          "specialization": "3D Modeling, Rendering"
+        }
+      ]
+    },
+    "stats": {
+      "title": "Our Journey in Numbers",
+      "items": [
+        { "id": "stat-1", "number": "100+", "label": "Projects Completed" },
+        { "id": "stat-2", "number": "15+", "label": "Years of Experience" },
+        { "id": "stat-3", "number": "95%", "label": "Client Satisfaction" }
+      ]
+    }
+  }
