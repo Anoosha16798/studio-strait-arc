@@ -1,9 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi';
 
-const ProjectCarousel = ({ media, onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const preloadImage = (url) => {
+  if (!url || typeof url !== 'string') return;
+  const img = new Image();
+  img.src = url;
+};
+
+const ProjectCarousel = ({ media, initialIndex = 0, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [currentLoaded, setCurrentLoaded] = useState(false);
+
+  const currentMedia = media[currentIndex];
+
+  // Preload current and adjacent images so next/prev are instant
+  useEffect(() => {
+    const prev = currentIndex === 0 ? media.length - 1 : currentIndex - 1;
+    const next = currentIndex === media.length - 1 ? 0 : currentIndex + 1;
+    [currentIndex, prev, next].forEach((i) => {
+      const item = media[i];
+      if (item?.type === 'image' && item.url) preloadImage(item.url);
+    });
+  }, [currentIndex, media]);
+
+  // Reset loaded state when slide changes; for images we wait for onLoad
+  useEffect(() => {
+    if (currentMedia?.type === 'image') setCurrentLoaded(false);
+    else setCurrentLoaded(true);
+  }, [currentIndex]);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? media.length - 1 : prev - 1));
@@ -13,7 +38,7 @@ const ProjectCarousel = ({ media, onClose }) => {
     setCurrentIndex((prev) => (prev === media.length - 1 ? 0 : prev + 1));
   };
 
-  const currentMedia = media[currentIndex];
+  const handleImageLoad = () => setCurrentLoaded(true);
 
   return (
     <motion.div
@@ -43,7 +68,7 @@ const ProjectCarousel = ({ media, onClose }) => {
         <HiChevronRight className="w-12 h-12" />
       </button>
 
-      <div className="w-full h-full flex items-center justify-center p-12">
+      <div className="w-full h-full flex items-center justify-center p-4 sm:p-8 md:p-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -51,14 +76,25 @@ const ProjectCarousel = ({ media, onClose }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="max-w-7xl max-h-full w-full h-full flex flex-col items-center justify-center"
+            className="max-w-7xl max-h-full w-full h-full flex flex-col items-center justify-center relative"
           >
             {currentMedia.type === 'image' ? (
-              <img
-                src={currentMedia.url}
-                alt={currentMedia.caption}
-                className="max-w-full max-h-full object-contain"
-              />
+              <>
+                {!currentLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  </div>
+                )}
+                <img
+                  src={currentMedia.url}
+                  alt={currentMedia.caption}
+                  className="max-w-full max-h-full object-contain transition-opacity duration-300"
+                  loading="eager"
+                  decoding="async"
+                  onLoad={handleImageLoad}
+                  style={{ opacity: currentLoaded ? 1 : 0 }}
+                />
+              </>
             ) : (
               <div className="w-full aspect-video max-h-full">
                 <iframe

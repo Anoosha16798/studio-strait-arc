@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Header from './components/common/Header'
 import Footer from './components/common/Footer';
 import LogoIntro from './components/common/LogoIntro';
@@ -30,10 +31,18 @@ function App() {
     sessionStorage.setItem('introSeen', 'true');
   };
 
+  const isIntroActive = showIntro && !hasSeenIntro;
+
   return (
     <Router>
-      {showIntro && !hasSeenIntro && <LogoIntro onComplete={handleIntroComplete} />}
-      <div className="min-h-screen bg-white flex flex-col">
+      {isIntroActive && <LogoIntro onComplete={handleIntroComplete} />}
+      <motion.div
+        className="min-h-screen bg-white flex flex-col"
+        style={{ pointerEvents: isIntroActive ? 'none' : 'auto' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isIntroActive ? 0 : 1 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
         <Header />
         <main className="flex-grow">
           <Routes>
@@ -46,7 +55,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </div>
+      </motion.div>
     </Router>
   );
 }

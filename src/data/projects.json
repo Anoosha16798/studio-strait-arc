@@ -13,7 +13,7 @@
         "category": "residential",
         "location": "Bangalore, India",
         "year": "2023",
-        "thumbnail": "/assets/three_fold_groove/1.jpg",
+        "thumbnail": "1_n8q0ih",
         "featured": true,
         "description": "The Three Fold Groove is a warm, traditional contemporary home designed for a young couple and their baby daughter. Soft arches and gentle curves were intentionally introduced to eliminate sharp edges, creating a safer and more fluid environment for their newborn. Paired with rattan veneer and solid wood, the space feels nurturing, elegant, and timeless",
         "details": {
@@ -25,24 +25,40 @@
      "media": [
   { 
     "type": "image", 
-    "url": "/assets/three_fold_groove/1.jpg", 
+    "url": "1_n8q0ih", 
     "caption": "Living room with custom furniture" 
   },
   { 
     "type": "image", 
-    "url": "/assets/three_fold_groove/2.jpg", 
+    "url": "2_rwz8hi", 
     "caption": "Dining area detail" 
   },
   { 
     "type": "image", 
-    "url": "/assets/three_fold_groove/3.jpg", 
+    "url": "3_far5lq", 
     "caption": "Bedroom suite" 
   },
   { 
     "type": "video", 
-    "url": "/assets/three_fold_groove/V1.mp4" 
+    "url": "V1_yzwwji" 
   }
-]
+],
+  "detailMedia": [
+    { "type": "image", "url": "THREE_FOLD_GROOVE_1_thlf7k" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_2_zacg3q" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_2_whsnik" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_4_jtiqgc" },
+    { "type": "video", "url": "THREE_FOLD_GROOVE_V5_erzoh4" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_5_tprxss" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_3_vcyxwc" },
+    { "type": "video", "url": "THREE_FOLD_GROOVE_V2_xewflw" },
+        { "type": "image", "url": "THREE_FOLD_GROOVE_7_wlsnw6" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_8_jmurzf" },
+        { "type": "image", "url": "THREE_FOLD_GROOVE_9_rtrn3m" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_10_mjwfzk" },
+     { "type": "image", "url": "THREE_FOLD_GROOVE_1_1_v3oswl" },
+    { "type": "image", "url": "THREE_FOLD_GROOVE_1_2_ac5zni" }
+  ]
 
       },
       {
@@ -52,8 +68,8 @@
         "category": "residential",
         "location": "Mumbai, India",
         "year": "2023",
-        "autoplayVideo": "/assets/oasis/v1.mp4",
-        "thumbnail": "/assets/oasis/1.jpg",
+        "autoplayVideo": "v1_hhonws",
+        "thumbnail": "1_ilmqtm",
         "featured": true,
         "description": "Oasis is a warm contemporary retreat in Bangalore, designed for a Singapore-based family seeking a calm and welcoming space to return to and to share as a serene Airbnb when they’re away. With earthy textures, soft neutrals, and warm wood tones, the home blends modern minimalism with effortless comfort and quiet elegance.",
         "details": {
@@ -65,22 +81,22 @@
         "media": [
           { 
             "type": "image", 
-            "url": "/assets/oasis/1.jpg", 
+            "url": "1_ilmqtm", 
             "caption": "Hall with wall painting" 
           },
           { 
             "type": "image", 
-            "url": "/assets/oasis/2.png", 
+            "url": "2_fs9kc6", 
             "caption": "Kids room sit-out" 
           },
           { 
             "type": "image", 
-            "url": "/assets/oasis/3.JPG", 
+            "url": "3_rtce3t", 
             "caption": "Living space overview" 
           },
           { 
             "type": "video", 
-            "url": "/assets/oasis/v1.mp4", 
+            "url": "v1_hhonws", 
             "caption": "Cozy corner" 
           }
         ]
@@ -103,8 +119,8 @@
     },
     "media": [
       { "type": "image", "url": "/assets/srujana/1.png", "caption": "Living room with natural light" },
-      { "type": "image", "url": "/assets/srujana/2.png" },
-      { "type": "image", "url": "/assets/srujana/3.png", "caption": "Bedroom seating area" },
+      { "type": "image", "url": "2_mq8pcb" },
+      { "type": "image", "url": "3_qz74zh", "caption": "Bedroom seating area" },
       { "type": "video", "url": "/assets/oasis/v1.mp4", "caption": "Luxury bedding detail" }
     ]
   },
@@ -115,7 +131,7 @@
     "category": "residential",
     "location": "Pune, India",
     "year": "2023",
-    "thumbnail": "/assets/kaira/1.PNG",
+    "thumbnail": "1_fk1mfs",
     "featured": true,
     "description": "Kaira is a modern Indian contemporary home designed for a middle-aged couple and their son. Rooted in warmth and familiarity, the space blends clean lines with natural wood tones, soft neutrals, and subtle Indian sensibilities. Balanced, practical, and refined, Kaira is a home that feels modern yet deeply connected to everyday Indian living.",
     "details": {
@@ -125,10 +141,10 @@
       "client": "Private Residence"
     },
     "media": [
-      { "type": "image", "url": "/assets/kaira/1.PNG", "caption": "Living room with natural light" },
-      { "type": "image", "url": "/assets/kaira/2.PNG" },
-      { "type": "image", "url": "/assets/kaira/3.jpeg", "caption": "Bedroom seating area" },
-      { "type": "video", "url": "/assets/kaira/v1.MP4", "caption": "Luxury bedding detail" }
+      { "type": "image", "url": "1_fk1mfs", "caption": "Living room with natural light" },
+      { "type": "image", "url": "2_ga5f47" },
+      { "type": "image", "url": "3_gzkaqm", "caption": "Bedroom seating area" },
+      { "type": "video", "url": "v1_l9o0lx", "caption": "Luxury bedding detail" }
     ]
   },
   {

@@ -1,37 +1,36 @@
 {
-    "title": "What Our Clients Say",
-    "subtitle": "Real experiences from real people",
-    "testimonials": [
-      {
-        "id": "test-1",
-        "name": "Three Fold Groove Client",
-        "role": "Homeowner",
-        "image": "/assets/three_fold_groove/1.jpg",
-        "quote": "While searching for an interior designer, we consulted multiple agencies but never felt fully aligned with their approach. With Sachitra, everything clicked instantly. She truly understood what we were looking for and focused...",
-        "videoUrl": null,
-        "videoThumbnail": "/assets/three_fold_groove/V1.mp4",
-        "rating": 5,
-        "featured": true,
-        "projectImages": [
-          "/assets/three_fold_groove/1.jpg",
-          "/assets/three_fold_groove/3.jpg"
-        ]
-      },
-      {
-        "id": "test-2",
-        "name": "Oasis",
-        "role": "Homeowner",
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
-        "quote": "I had the pleasure of working with Sachitra on redesigning my entire unit, and I'm thrilled with the results. The hall, with its striking wall painting, stands out as a welcoming feature for guests, while the kids' room sit-",
-        "videoUrl": null,
-        "videoThumbnail": "/assets/oasis/v1.mp4",
-        "rating": 5,
-        "featured": true,
-        "projectImages": [
-          "/assets/oasis/1.jpg",
-          "/assets/oasis/3.jpg"
-        ]
-      }
-
-    ]
-  }
+  "title": "What Our Clients Say",
+  "subtitle": "Real experiences from real people",
+  "testimonials": [
+    {
+      "id": "test-1",
+      "name": "Three Fold Groove Client",
+      "role": "Homeowner",
+      "date": "March 2024",
+      "quote": "While searching for an interior designer, we consulted multiple agencies but never felt fully aligned with their approach. With Sachitra, everything clicked instantly. She truly understood what we were looking for and focused on bringing our vision to life with precision and care.",
+      "rating": 5,
+      "featured": true,
+      "projectSlug": "three-fold-groove"
+    },
+    {
+      "id": "test-2",
+      "name": "Oasis",
+      "role": "Homeowner",
+      "date": "July 2023",
+      "quote": "I had the pleasure of working with Sachitra on redesigning my entire unit, and I'm thrilled with the results. The hall, with its striking wall painting, stands out as a welcoming feature for guests, while the kids' room sits perfectly in balance. Every detail was thoughtfully considered.",
+      "rating": 5,
+      "featured": true,
+      "projectSlug": "oasis"
+    },
+    {
+      "id": "test-3",
+      "name": "Srujana",
+      "role": "Homeowner",
+      "image": "",
+      "date": "January 2024",
+      "quote": "We recently got the interior work done for our 3BHK apartment by Architect Sachitra from Studio Strait Arc, and we’re genuinely happy with the final outcome. The home has come together beautifully, with a transitional theme that blends classic warmth with a modern, clean feel. What stood out for us was her eye for detail and the uniqueness in her suggestions, everything feels thoughtfully planned and well balanced. Her team’s craftsmanship and finishing were excellent, and the overall execution felt neat and professional. We also really appreciated how responsive she was throughout the process. Any changes or adjustments we requested were considered immediately, which made the experience smooth and stress-free. On top of that, her support in choosing the right materials and artefacts that matched the theme was a big help and made a noticeable difference in the final look. Overall, it was a great experience, and we would definitely recommend Studio Strait Arc to anyone looking for a tasteful, well-executed interior with strong ",
+      "rating": 5,
+      "featured": true
+    }
+  ]
+}

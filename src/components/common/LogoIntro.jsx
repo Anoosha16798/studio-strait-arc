@@ -6,14 +6,17 @@ const LogoIntro = ({ onComplete }) => {
 
   useEffect(() => {
     // Start the exit animation after 1.5 seconds
+    const exitStart = 1500;
+    const overlayFadeMs = 800;
+
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 1500);
+    }, exitStart);
 
-    // Call onComplete after animation finishes
+    // Call onComplete as soon as overlay has faded so the site can fade in (no blank gap)
     const completeTimer = setTimeout(() => {
       onComplete();
-    }, 6000);
+    }, exitStart + overlayFadeMs );
 
     return () => {
       clearTimeout(timer);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -8,6 +8,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const headerRef = useRef(null);
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -22,11 +23,36 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Set --header-height so body sits flush below header (no gap, no overlap)
+  useEffect(() => {
+    const setHeight = () => {
+      if (headerRef.current) {
+        const h = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty("--header-height", `${h}px`);
+      }
+    };
+    setHeight();
+    requestAnimationFrame(setHeight);
+    const t1 = setTimeout(setHeight, 50);
+    const t2 = setTimeout(setHeight, 200);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [isScrolled, isMobileMenuOpen]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
         isScrolled ? "py-2" : "py-4"
       }`}
+      style={{ background: '#fff' }}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
@@ -80,13 +106,45 @@ const Header = () => {
         </div>
       </div>
 
-      {/* DECORATIVE DIVIDER: Matches terracotta dot exactly */}
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-md">
+          <div className="container-custom py-4 space-y-3">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-sm font-semibold tracking-[0.15em] uppercase ${
+                    isActive ? "text-[#942e06]" : "text-gray-700"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+
+            <div className="pt-3">
+              <SocialLinks />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* DECORATIVE DIVIDER: Terracotta dot with lines that fade early and leave a tiny gap */}
       <div className="container-custom mt-2">
-        <div className="relative h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent">
+        <div
+          className="relative h-px"
+          style={{
+            background: 'linear-gradient(to right, transparent 0%, #942e06 28%, transparent 49.2%, transparent 50.8%, #942e06 72%, transparent 100%)',
+          }}
+        >
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full"
-            style={{ backgroundColor: "#942e06" }}
-          ></div>
+            style={{ backgroundColor: '#942e06', boxShadow: '0 0 0 1px white' }}
+          />
         </div>
       </div>
     </header>

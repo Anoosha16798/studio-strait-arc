@@ -1,22 +1,20 @@
 import { motion } from 'framer-motion';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import Button from '../common/Button';
 import servicesData from '../../data/services.json';
+import { motionTransition, viewportOnce } from '../../utils/motion';
 
 const ServicesChecklist = () => {
-  const [ref, isVisible] = useScrollAnimation();
   const { servicesList } = servicesData;
 
   return (
-    <section
-      ref={ref}
-      className="section-padding bg-white"
-    >
+    <section className="section-padding bg-white">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-20"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={motionTransition.default}
+          className="text-center mb-20 transform-gpu"
         >
           <h2 className="heading-lg mb-8 text-gray-900">
             {servicesList.title}
@@ -31,10 +29,11 @@ const ServicesChecklist = () => {
             {servicesList.items.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                className="flex items-start gap-5"
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ ...motionTransition.default, delay: index * 0.05 }}
+                className="flex items-start gap-5 transform-gpu"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1 bg-primary-600">
                   <svg

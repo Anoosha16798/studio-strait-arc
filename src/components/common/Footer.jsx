@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SocialLinks from './SocialLinks';
-import siteData from '../../data/siteData.json'
+import siteData from '../../data/siteData.json';
+import { staggerContainer, staggerItem, motionTransition, viewportOnce } from '../../utils/motion';
 
 const Footer = () => {
   const quickLinks = [
@@ -15,14 +17,21 @@ const Footer = () => {
   const headerClass = "text-base font-serif font-bold mb-6 text-white";
 
   return (
-    <footer className="text-white relative overflow-hidden" style={{ backgroundColor: '#942e06' }}>
+    <motion.footer
+      className="text-white relative overflow-hidden"
+      style={{ backgroundColor: '#942e06' }}
+      initial="initial"
+      whileInView="animate"
+      viewport={viewportOnce}
+      variants={staggerContainer}
+    >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent"></div>
 
       <div className="container-custom py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <motion.div className="lg:col-span-1" variants={staggerItem} transition={motionTransition.default}>
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img
                 src="/images/logo_icon/SA-Logo_White.png"
@@ -35,13 +44,13 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
-              Transforming spaces into timeless works of art. We bring your vision to life with innovative design solutions.
+           Studio Strait Arc was found on a simple yet powerful belief that every space should tell a story.
             </p>
             <SocialLinks />
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={staggerItem} transition={motionTransition.default}>
             <h3 className={headerClass}>Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -56,10 +65,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Get In Touch */}
-          <div>
+          <motion.div variants={staggerItem} transition={motionTransition.default}>
             <h3 className={headerClass}>Get In Touch</h3>
             <div className="space-y-4">
               <a href={`mailto:${siteData.site.email}`} className="text-white/80 hover:text-white transition-colors text-sm flex items-start gap-3 group">
@@ -75,10 +84,10 @@ const Footer = () => {
                 <span>{siteData.site.phone}</span>
               </a> */}
             </div>
-          </div>
+          </motion.div>
 
           {/* Office Location */}
-          <div>
+          <motion.div variants={staggerItem} transition={motionTransition.default}>
             <h3 className={headerClass}>Visit Our Studio</h3>
             <address className="not-italic text-white/80 text-sm leading-relaxed mb-4">
               {siteData.site.address.line1}<br />
@@ -89,7 +98,7 @@ const Footer = () => {
               <p className="font-medium text-white mb-1">Hours</p>
               <p>{siteData.site.hours}</p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
@@ -109,7 +118,7 @@ const Footer = () => {
 
       {/* Decorative Bottom Element */}
       <div className="absolute bottom-0 left-0 w-full h-1" style={{ background: 'linear-gradient(to right, rgba(86, 28, 4, 0.9), #942e06, rgba(86, 28, 4, 0.9))' }}></div>
-    </footer>
+    </motion.footer>
   );
 };
 

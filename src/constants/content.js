@@ -6,7 +6,7 @@ export const BRAND_DATA = {
       { name: "LinkedIn", url: "https://linkedin.com" }
     ],
     contact: {
-      email: "hello@studiostraitarc.com",
+      email: "studiostraitarc@gmail.com",
       address: "Studio 42, Creative Block, Mumbai, India"
     }
   };

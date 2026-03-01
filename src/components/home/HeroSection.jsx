@@ -1,68 +1,56 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import Button from '../common/Button';
+import { resolveMediaUrl } from '../../utils/helpers';
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 500], [1, 0.4]);
 
-  const heroImages = [
-    '/assets/three_fold_groove/1.jpg',
-    '/assets/oasis/1.jpg',
-    '/assets/srujana/1.png',
-    '/assets/kaira/3.jpeg',
-  ];
+  const heroImage = resolveMediaUrl('1_n8q0ih', { width: 2000 });
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // Clear space for fixed header so image never sits under it
+  const headerClearance = '6rem';
 
   return (
-    <section className="mt-16 lg:mt-20 pb-4 bg-white overflow-hidden">
+    <section
+      className="bg-white overflow-hidden relative z-0"
+      style={{ paddingTop: headerClearance }}
+    >
       <div className="container-custom">
-        
-        {/* CAROUSEL: Height set to 80vh for impact */}
-        <motion.div 
-          className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] rounded-2xl overflow-hidden shadow-lg"
+        {/* Hero: image fills width, no side bars */}
+        <motion.div
+          className="relative w-full overflow-hidden shadow-lg transform-gpu isolate will-change-transform rounded-b-2xl aspect-[4/3] sm:aspect-[16/10] lg:aspect-[5/3] min-h-[50vh]"
           style={{ opacity }}
         >
-          <div className="absolute inset-0">
-            {heroImages.map((image, index) => (
-              <img
-                key={image}
-                src={image}
-                alt="Interior"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
-          </div>
-        </motion.div>
+          <img
+            src={heroImage}
+            alt="Interior"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
 
-        {/* HORIZONTAL LAYOUT: Heading and Button side-by-side */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-4 md:mt-5"
-        >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
-            <h1 className="font-serif text-xl md:text-1xl lg:text-1xl text-gray-900 leading-tight">
-              Craft Your Perfect <span className="text-[#942e06] italic">Dream Home</span>
-            </h1>
-            
-            <div className="flex-shrink-0">
-              <Button variant="primary" size="sm" to="/contact">
-                Start Your Project
-              </Button>
+          {/* Overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/20" />
+
+          {/* TEXT ON IMAGE */}
+            <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="absolute inset-0 flex items-end md:items-center justify-center p-4 md:p-10"
+          >
+            <div className="w-full max-w-3xl text-center">
+              <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+                <span className="block">Craft Your Perfect</span>
+                <span className="block italic text-[#f4c7b5]">Dream Home</span>
+              </h1>
+
+              <div className="mt-5 flex justify-center">
+                <Button variant="primary" size="sm" to="/contact">
+                  Start Your Project
+                </Button>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

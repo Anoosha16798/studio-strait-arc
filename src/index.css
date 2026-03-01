@@ -4,6 +4,9 @@
 
 @layer base {
   * { box-sizing: border-box; }
+  :root {
+    --header-height: 88px; /* fallback; Header measures and updates this */
+  }
   html { scroll-behavior: smooth; }
   body {
     font-family: Inter, sans-serif;
@@ -79,6 +82,11 @@
   /* REDUCED COMPONENT GAPS */
   .gap-responsive {
     gap: 1.5rem;
+  }
+
+  /* Content starts below fixed header */
+  .pt-header {
+    padding-top: var(--header-height);
   }
 
   @media (min-width: 1024px) {

@@ -9,7 +9,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-20 bg-white min-h-screen">
+    <div className="pt-header pb-20 bg-white min-h-screen">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

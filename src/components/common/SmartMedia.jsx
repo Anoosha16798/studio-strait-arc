@@ -4,9 +4,10 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 const SmartMedia = ({ src, poster, isPriority, type = 'image' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef(null);
-  
-  // margin: "1200px" starts downloading the image long before it hits the screen
-  const isNearView = useInView(containerRef, { margin: "1200px", once: true });
+
+  // Use a modest root margin so we start loading shortly before the media enters
+  // the viewport, but don't eagerly load everything far off‑screen.
+  const isNearView = useInView(containerRef, { margin: "400px", once: true });
   const shouldLoad = isPriority || isNearView;
 
   return (
@@ -40,7 +41,11 @@ const SmartMedia = ({ src, poster, isPriority, type = 'image' }) => {
               src={src}
               poster={poster}
               className="w-full h-full object-cover"
-              muted playsInline loop autoPlay
+              muted
+              playsInline
+              loop
+              autoPlay
+              preload="metadata"
               onLoadedData={() => setIsLoaded(true)}
             />
           ) : (
@@ -48,7 +53,8 @@ const SmartMedia = ({ src, poster, isPriority, type = 'image' }) => {
               src={src}
               alt=""
               loading={isPriority ? "eager" : "lazy"}
-              fetchpriority={isPriority ? "high" : "auto"}
+              fetchPriority={isPriority ? "high" : "auto"}
+              decoding="async"
               className="w-full h-full object-cover"
               onLoad={() => setIsLoaded(true)}
             />

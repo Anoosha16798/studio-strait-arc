@@ -1,45 +1,82 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import aboutData from '../data/about.json';
+import servicesData from '../data/services.json';
 import Button from '../components/common/Button';
+import DotDivider from '../components/common/DotDivider';
+import CTASection from '../components/home/CTASectio';
+import { motionTransition, viewportOnce } from '../utils/motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { hero, founder, layers, values, team, stats } = aboutData;
+  const { hero, founder, values, team, stats } = aboutData;
 
   return (
-    <div className="pt-20 bg-white">
-      {/* Hero Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl mx-auto"
-          >
-            <p className="text-sm tracking-widest text-gray-500 uppercase mb-4">
+    <motion.div
+      className="pt-header bg-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      {/* About Studio Design – elegant editorial layout */}
+      <section className="py-12 md:py-16 lg:py-20">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            {/* Subtitle: small caps + thin theme rule */}
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-3"
+            >
               {hero.subtitle}
-            </p>
-            <h1 className="heading-xl mb-6">{hero.title}</h1>
-            <p className="text-md text-gray-600">{hero.description}</p>
-          </motion.div>
+            </motion.p>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.15, duration: 0.4 }}
+              className="h-px w-12 mb-6"
+              style={{ backgroundColor: '#942e06' }}
+            />
+
+            {/* Title: theme color */}
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="font-serif text-3xl md:text-4xl lg:text-[2.5rem] font-semibold tracking-tight mb-8 leading-tight"
+              style={{ color: '#942e06' }}
+            >
+              {hero.title}
+            </motion.h1>
+
+            {/* Description: no card, soft left accent */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="relative pl-5 md:pl-6 border-l-2 border-[#942e06]/30"
+            >
+              <p className="text-gray-600 text-[15px] md:text-base leading-[1.75]">
+                {hero.description}
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       <FounderSection founder={founder} />
       <StatsSection stats={stats} />
-      <LayersSection layers={layers} />
+      
+      <LayersSection />
+      
       <ValuesSection values={values} />
-
-      {/* Process Gallery */}
-      <ProcessGallerySection />
-
-      {/* CTA Section */}
-      <section className="section-padding bg-white">
+{/* CTA Section */}
+      {/* <section className="section-padding bg-white">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,8 +95,19 @@ const About = () => {
             </Button>
           </motion.div>
         </div>
-      </section>
-    </div>
+      </section> */}
+       <CTASection 
+              title="Ready to Transform Your Space?"
+              subtitle="Let's create something beautiful together"
+              buttonText="I WANT TO PROCEED"
+              secondaryText="Click the button to watch a free tutorial"
+              darkBackground={true}
+            />
+      {/* Process Gallery */}
+      <ProcessGallerySection />
+
+      
+    </motion.div>
   );
 };
 
@@ -100,15 +148,17 @@ const HeroImagesSection = () => {
 };
 
 const FounderSection = ({ founder }) => {
-  const [ref, isVisible] = useScrollAnimation();
+  const viewport = viewportOnce;
 
   return (
-    <section ref={ref} className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewport}
+            transition={motionTransition.default}
             className="relative"
           >
             <div className="relative overflow-hidden rounded-2xl mb-6">
@@ -122,8 +172,10 @@ const FounderSection = ({ founder }) => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, x: 28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewport}
+            transition={motionTransition.default}
           >
             <p className="text-sm tracking-widest text-gray-500 uppercase mb-4">
               Founder Story
@@ -147,17 +199,19 @@ const FounderSection = ({ founder }) => {
 };
 
 const StatsSection = ({ stats }) => {
-  const [ref, isVisible] = useScrollAnimation();
+  const viewport = viewportOnce;
 
   return (
-    <section ref={ref} className="section-padding bg-primary-600 relative overflow-hidden">
+    <section className="section-padding bg-primary-600 relative overflow-hidden">
       {/* Decorative lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent"></div>
       
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={motionTransition.default}
           className="text-center mb-12"
         >
           <h2 className="heading-lg text-white">{stats.title}</h2>
@@ -168,9 +222,10 @@ const StatsSection = ({ stats }) => {
           {stats.items.map((stat, index) => (
             <motion.div
               key={stat.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ ...motionTransition.default, delay: index * 0.1 }}
               className="text-center group w-full max-w-xs"
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
@@ -188,7 +243,33 @@ const StatsSection = ({ stats }) => {
 };
 
 
-const LayersSection = ({ layers }) => {
+const LayersSection = () => {
+  const { itTakesAnArmy } = servicesData;
+
+  const iconMap = {
+    tools: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    users: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    ),
+    box: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+      </svg>
+    ),
+    clipboard: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      </svg>
+    ),
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -226,10 +307,11 @@ const LayersSection = ({ layers }) => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-4">{layers.title}</h2>
+          <h2 className="heading-lg mb-4">{itTakesAnArmy.title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {layers.subtitle}
+            {itTakesAnArmy.subtitle}
           </p>
+          {/* <DotDivider className="mt-8 max-w-xs mx-auto" /> */}
         </motion.div>
 
         <motion.div 
@@ -239,32 +321,31 @@ const LayersSection = ({ layers }) => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }} // Waits until 100px of the list is visible
         >
-          {layers.items.map((layer, index) => (
+          {itTakesAnArmy.benefits.map((benefit, index) => (
             <motion.div
-              key={layer.id}
+              key={benefit.id}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02, 
-                backgroundColor: "rgba(249, 250, 251, 1)", // bg-gray-50
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" // shadow-lg
+              whileHover={{
+                scale: 1.02,
+                backgroundColor: "rgba(249, 250, 251, 1)",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
               }}
-              // Fast transition for hover interaction (200ms)
               transition={{ duration: 0.2 }}
-              className="flex gap-6 items-start p-6 rounded-xl cursor-default bg-white"
+              className="flex gap-6 items-start p-6 rounded-xl cursor-default bg-white border border-gray-200/90 shadow-sm"
             >
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: 15, scale: 1.1 }}
-                className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg shadow-lg"
+                className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-lg"
               >
-                {index + 1}
+                {iconMap[benefit.icon] || iconMap.tools}
               </motion.div>
-              
+
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-gray-900">
-                  {layer.title}
+                  {benefit.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  {layer.description}
+                  {benefit.description}
                 </p>
               </div>
             </motion.div>
@@ -276,7 +357,7 @@ const LayersSection = ({ layers }) => {
 };
 
 const ValuesSection = ({ values }) => {
-  const [ref, isVisible] = useScrollAnimation();
+  const viewport = viewportOnce;
 
   const iconPaths = {
     0: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -288,11 +369,13 @@ const ValuesSection = ({ values }) => {
   };
 
   return (
-    <section ref={ref} className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={motionTransition.default}
           className="text-center mb-16"
         >
           <h2 className="heading-lg mb-4">{values.title}</h2>
@@ -303,10 +386,11 @@ const ValuesSection = ({ values }) => {
           {values.items.map((value, index) => (
             <motion.div
               key={value.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 group"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ ...motionTransition.default, delay: index * 0.08 }}
+              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-200/90"
             >
               <div className="w-16 h-16 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -328,7 +412,7 @@ const ValuesSection = ({ values }) => {
 };
 
 const ProcessGallerySection = () => {
-  const [ref, isVisible] = useScrollAnimation();
+  const viewport = viewportOnce;
   
   const processImages = [
     { url: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&h=600&fit=crop', title: 'Design' },
@@ -337,27 +421,31 @@ const ProcessGallerySection = () => {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={motionTransition.default}
           className="text-center mb-12"
         >
           <h2 className="heading-lg mb-4">Our Process in Action</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From concept to completion, see how we bring your vision to life
           </p>
+          {/* <DotDivider className="mt-8 max-w-xs mx-auto" /> */}
         </motion.div>
 
         {/* MAGIC: auto-fit + justify-center */}
-        <div className="grid grid-flow-col auto-cols-fr max-w-4xl mx-auto justify-center gap-6 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {processImages.map((image, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ ...motionTransition.default, delay: index * 0.1 }}
               className="relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl group min-w-0"
             >
               <img

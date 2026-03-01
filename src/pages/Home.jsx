@@ -15,6 +15,7 @@ const Home = () => {
     <main className="overflow-hidden">
       <HeroSection />
       <OurWork />
+      <TestimonialsSection />
       <CTASection 
         title="Ready to Transform Your Space?"
         subtitle="Let's create something beautiful together"
@@ -24,13 +25,13 @@ const Home = () => {
       />
       <ServicesPreview />
       <ServicesChecklist />
-      <CTASection 
+      {/* <CTASection 
         title="Let's Start Your Design Journey"
         subtitle="Schedule a free consultation with our team"
         buttonText="GET IN TOUCH"
         secondaryText="No obligation, just a conversation about your dreams"
         darkBackground={false}
-      />
+      /> */}
     </main>
   );
 };
