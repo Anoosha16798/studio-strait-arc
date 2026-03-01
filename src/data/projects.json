@@ -99,7 +99,23 @@
             "url": "v1_hhonws", 
             "caption": "Cozy corner" 
           }
-        ]
+        ],
+         "detailMedia": [
+    { "type": "image", "url": "OASIS_2_tmshim" },
+    { "type": "image", "url": "IMG_1988_jattyu" },
+    { "type": "image", "url": "IMG_1966_skvqqx" },
+    { "type": "video", "url": "OASIS__3_v25udh" },
+       { "type": "image", "url": "OASIS_2_tmshim" },
+    { "type": "image", "url": "IMG_1959_qjuzkp" },
+    { "type": "image", "url": "IMG_1938_oc6wgl" },
+    { "type": "video", "url": "OASIS_2_iqphe0" },
+     { "type": "image", "url": "IMG_1936_zbnoi8" },
+    { "type": "image", "url": "IMG_1959_qjuzkp" },
+    { "type": "image", "url": "IMG_1938_oc6wgl" },
+      { "type": "video", "url": "OASIS_1_uh5hsv" },
+     { "type": "image", "url": "OASIS_2_sr1z6b" },
+    { "type": "image", "url": "OASIS_1_s4u08a" }
+         ]
       },
 {
     "id": "project-3",

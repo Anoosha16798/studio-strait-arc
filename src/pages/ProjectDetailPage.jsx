@@ -38,12 +38,7 @@ const ProjectDetailPage = () => {
     }
   };
 
-  // Use the exact same collage layout as the Home "OurWork" section
-  // for the first 11 items, and a simple grid for any extras.
-  const mainMedia = detailMedia.slice(0, 11);
-  const extraMedia = detailMedia.slice(11);
-
-  // LAYOUT CONFIGURATION: Copied from Home OurWork grid
+  // Collage layout (same as Home OurWork): repeat this 11-slot pattern for ALL items
   const gridMapping = [
     { span: "md:col-span-6 md:row-span-2", aspect: "aspect-[3/4]" },   // 1: Large Vertical
     { span: "md:col-span-6 md:row-span-1", aspect: "aspect-[16/9]" },  // 2: Top Right
@@ -75,19 +70,17 @@ const ProjectDetailPage = () => {
             </p>
           </header>
 
-          {/* DYNAMIC GRID: same collage layout as Home OurWork (first 11 items) */}
+          {/* Collage grid: same 11-slot pattern repeated for all media (index % 11) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-            {mainMedia.map((item, index) => {
-              const layout = gridMapping[index];
-              if (!layout) return null;
-
+            {detailMedia.map((item, index) => {
+              const layout = gridMapping[index % 11];
               return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: (index % 11) * 0.05 }}
                   className={`relative cursor-pointer overflow-hidden rounded-sm shadow-sm group ${layout.span}`}
                   onClick={() => { 
                     setCarouselStartIndex(index); 
@@ -110,42 +103,6 @@ const ProjectDetailPage = () => {
               );
             })}
           </div>
-
-          {/* Extra media (after first 11): simple, clean 3‑column grid below */}
-          {extraMedia.length > 0 && (
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {extraMedia.map((item, idx) => {
-                const globalIndex = mainMedia.length + idx;
-
-                return (
-                  <motion.div
-                    key={globalIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.03 }}
-                    className="relative cursor-pointer overflow-hidden rounded-lg shadow-sm group"
-                    onClick={() => { 
-                      setCarouselStartIndex(globalIndex); 
-                      setShowCarousel(true); 
-                    }}
-                    onMouseEnter={() => preloadCarouselImage(globalIndex)}
-                  >
-                    <div className="w-full h-full aspect-[4/3] bg-gray-50">
-                      <SmartMedia
-                        src={resolveMediaUrl(item.url, { 
-                          width: 1400,
-                          resourceType: item.type === 'video' ? 'video' : 'image'
-                        })}
-                        type={item.type}
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          )}
         </div>
       </div>
 
