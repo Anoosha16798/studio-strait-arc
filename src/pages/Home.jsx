@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="overflow-hidden">
+    <div className="overflow-hidden bg-white min-h-screen">
       <HeroSection />
       <OurWork />
       <TestimonialsSection />
@@ -32,7 +32,7 @@ const Home = () => {
         secondaryText="No obligation, just a conversation about your dreams"
         darkBackground={false}
       /> */}
-    </main>
+    </div>
   );
 };
 

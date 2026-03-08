@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import aboutData from '../data/about.json';
 import servicesData from '../data/services.json';
-import Button from '../components/common/Button';
-import DotDivider from '../components/common/DotDivider';
 import CTASection from '../components/home/CTASectio';
+import AboutHero from '../components/about/AboutHero';
 import { motionTransition, viewportOnce } from '../utils/motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -17,96 +16,32 @@ const About = () => {
 
   return (
     <motion.div
-      className="pt-header bg-white"
+      className="min-h-screen relative"
+      style={{
+        backgroundImage: `radial-gradient(ellipse 100% 70% at 50% -10%, rgba(255,253,247,0.85) 0%, transparent 55%), linear-gradient(180deg, #FDFBF7 0%, #FAF8F5 100%)`,
+        backgroundRepeat: 'no-repeat, no-repeat',
+        backgroundSize: '100% 100%, 100% 100%',
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      {/* About Studio Design – elegant editorial layout */}
-      <section className="py-12 md:py-16 lg:py-20">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            {/* Subtitle: small caps + thin theme rule */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-400 mb-3"
-            >
-              {hero.subtitle}
-            </motion.p>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.15, duration: 0.4 }}
-              className="h-px w-12 mb-6"
-              style={{ backgroundColor: '#942e06' }}
-            />
+      {/* Full-screen About hero – elegant, no busy illustration */}
+      <AboutHero />
 
-            {/* Title: theme color */}
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.5 }}
-              className="font-serif text-3xl md:text-4xl lg:text-[2.5rem] font-semibold tracking-tight mb-8 leading-tight"
-              style={{ color: '#942e06' }}
-            >
-              {hero.title}
-            </motion.h1>
-
-            {/* Description: no card, soft left accent */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="relative pl-5 md:pl-6 border-l-2 border-[#942e06]/30"
-            >
-              <p className="text-gray-600 text-[15px] md:text-base leading-[1.75]">
-                {hero.description}
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
+      {/* About content – full width, gradient sections */}
       <FounderSection founder={founder} />
       <StatsSection stats={stats} />
-      
       <LayersSection />
-      
       <ValuesSection values={values} />
-{/* CTA Section */}
-      {/* <section className="section-padding bg-white">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
-            <h2 className="heading-lg text-gray-900 mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Let's create something beautiful together
-            </p>
-            <Button variant="primary" size="lg" to="/contact">
-              GET IN TOUCH
-            </Button>
-          </motion.div>
-        </div>
-      </section> */}
-       <CTASection 
-              title="Ready to Transform Your Space?"
-              subtitle="Let's create something beautiful together"
-              buttonText="I WANT TO PROCEED"
-              secondaryText="Click the button to watch a free tutorial"
-              darkBackground={true}
-            />
-      {/* Process Gallery */}
+      <CTASection
+        title="Ready to Transform Your Space?"
+        subtitle="Let's create something beautiful together"
+        buttonText="I WANT TO PROCEED"
+        secondaryText="Click the button to watch a free tutorial"
+        darkBackground={true}
+      />
       <ProcessGallerySection />
-
-      
     </motion.div>
   );
 };
@@ -151,7 +86,12 @@ const FounderSection = ({ founder }) => {
   const viewport = viewportOnce;
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section
+      className="section-padding min-h-[70vh] flex flex-col justify-center"
+      style={{
+        background: 'linear-gradient(180deg, #FAF8F5 0%, #F5F0EB 50%, #F0EAE4 100%)',
+      }}
+    >
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
@@ -202,9 +142,14 @@ const StatsSection = ({ stats }) => {
   const viewport = viewportOnce;
 
   return (
-    <section className="section-padding bg-primary-600 relative overflow-hidden">
+    <section
+      className="section-padding min-h-[40vh] flex flex-col justify-center relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(165deg, #942e06 0%, #a63a10 40%, #8c2a05 100%)',
+      }}
+    >
       {/* Decorative lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent opacity-60" />
       
       <div className="container-custom relative z-10">
         <motion.div
@@ -237,7 +182,7 @@ const StatsSection = ({ stats }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent opacity-60" />
     </section>
   );
 };
@@ -298,7 +243,12 @@ const LayersSection = () => {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section
+      className="section-padding min-h-[70vh] flex flex-col justify-center"
+      style={{
+        background: 'linear-gradient(180deg, #F0EAE4 0%, #FAF8F5 50%, #F5F0EB 100%)',
+      }}
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -369,7 +319,12 @@ const ValuesSection = ({ values }) => {
   };
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section
+      className="section-padding min-h-[60vh] flex flex-col justify-center"
+      style={{
+        background: 'linear-gradient(180deg, #F5F0EB 0%, #EDE6DF 50%, #F8F5F1 100%)',
+      }}
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -421,7 +376,12 @@ const ProcessGallerySection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section
+      className="section-padding min-h-[60vh] flex flex-col justify-center"
+      style={{
+        background: 'linear-gradient(180deg, #F8F5F1 0%, #F0EAE4 50%, rgba(148,46,6,0.04) 100%)',
+      }}
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -59,7 +59,7 @@ const ProjectDetailPage = () => {
         <div className="container-custom">
           {/* Project Header */}
           <header className="text-center mb-16">
-            <p className="text-[10px] tracking-[0.4em] uppercase mb-4 text-gray-400 font-medium">
+            <p className="text-[10px] tracking-[0.4em] uppercase mb-4 text-gray-400 pt-4 font-medium">
               {project.category}
             </p>
             <h1 className="text-4xl md:text-5xl font-serif mb-8 text-gray-900">

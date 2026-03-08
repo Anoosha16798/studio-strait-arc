@@ -43,6 +43,32 @@
         }
       ]
     },
+    "designProcess": {
+      "subtitle": "HOW WE WORK",
+      "title": "Our Interior Design Process",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discovery Call",
+          "description": "We begin with a detailed consultation to understand your vision, lifestyle, budget, and design aspirations for your space."
+        },
+        {
+          "number": "02",
+          "title": "Concept & Mood Board",
+          "description": "Our team develops curated mood boards, material palettes, and spatial concepts that bring your interior design vision to life."
+        },
+        {
+          "number": "03",
+          "title": "Design & Execution",
+          "description": "From detailed drawings to on-site coordination with trusted vendors, we manage every element of your project with precision."
+        },
+        {
+          "number": "04",
+          "title": "Final Reveal",
+          "description": "The moment you've been waiting for — stepping into your beautifully transformed space, styled to perfection and ready to live in."
+        }
+      ]
+    },
     "values": {
       "title": "Our Core Values",
       "subtitle": "The principles that guide everything we do",

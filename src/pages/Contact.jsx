@@ -63,7 +63,7 @@ const Contact = () => {
           transition={motionTransition.default}
           className="text-center mb-20"
         >
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase mb-6 text-gray-500">
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase mb-6 text-gray-500 pt-4">
             Get In Touch
           </p>
           <h1 className="heading-xl mb-8">Let's Create Something Beautiful</h1>

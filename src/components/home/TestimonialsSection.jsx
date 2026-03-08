@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import testimonialsData from '../../data/testimonials.json';
 import { motionTransition, viewportOnce } from '../../utils/motion';
-
-const cleanPath = (path) => path?.replace(/^(\.?\/)?public\//, '/') || '';
 
 const StarRating = ({ rating, className = '' }) => (
   <div className={`flex gap-0.5 ${className}`} aria-label={`${rating} out of 5 stars`}>
@@ -24,51 +22,52 @@ const StarRating = ({ rating, className = '' }) => (
 );
 
 const TestimonialCard = ({ testimonial, isExpanded, onToggleExpand }) => {
-  const avatarSrc = testimonial.image ? cleanPath(testimonial.image) : null;
-  const initial = testimonial.name.charAt(0).toUpperCase();
-  const hasLongQuote = testimonial.quote && testimonial.quote.length > 180;
+  const hasLongQuote = testimonial.quote && testimonial.quote.length > 200;
+  const projectType = testimonial.projectType || testimonial.role;
+  const location = testimonial.location || testimonial.date || '';
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-2xl border border-gray-200/90 shadow-sm p-6 md:p-8 min-h-[280px]">
-      <div className="flex items-start gap-4 mb-4">
-        <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-primary-50 flex items-center justify-center text-primary-600 font-semibold text-lg">
-          {avatarSrc ? (
-            <img src={avatarSrc} alt="" className="w-full h-full object-cover" />
-          ) : (
-            initial
-          )}
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="font-semibold text-gray-900 text-primary-600">{testimonial.name}</p>
-          {testimonial.date && (
-            <p className="text-xs text-gray-500 mt-0.5">{testimonial.date}</p>
-          )}
-        </div>
-      </div>
-      <StarRating rating={testimonial.rating ?? 5} className="text-primary-600 mb-4" />
+    <div className="flex flex-col h-full bg-white rounded-xl border border-gray-200/80 shadow-sm p-6 md:p-8 text-left">
+      <StarRating
+        rating={testimonial.rating ?? 5}
+        className="text-[#942e06] mb-4"
+      />
       <p
-        className={`text-gray-600 text-sm md:text-base leading-relaxed flex-1 min-h-0 ${
-          isExpanded ? '' : 'line-clamp-4'
+        className={`font-serif text-gray-800 text-sm md:text-base leading-relaxed flex-1 min-h-0 ${
+          isExpanded ? '' : 'line-clamp-5'
         }`}
       >
-        {testimonial.quote}
+        "{testimonial.quote}"
       </p>
       {hasLongQuote && (
         <button
           type="button"
           onClick={onToggleExpand}
-          className="mt-3 text-left text-xs text-gray-400 hover:text-primary-600 transition-colors focus:outline-none"
+          className="mt-3 text-left text-xs text-gray-400 hover:text-[#942e06] transition-colors focus:outline-none"
         >
           {isExpanded ? 'Show less' : 'See more'}
         </button>
       )}
+      <p className="font-serif font-semibold text-gray-900 mt-4 text-base md:text-lg">
+        {testimonial.name}
+      </p>
+      {projectType && (
+        <p className="font-serif text-sm text-[#942e06] mt-0.5">
+          {projectType}
+        </p>
+      )}
+      {location && (
+        <p className="text-gray-600 text-xs md:text-sm mt-0.5">
+          {location}
+        </p>
+      )}
       {testimonial.projectSlug && (
         <Link
           to={`/projects/${testimonial.projectSlug}`}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-600 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-600/30 rounded"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-[#942e06] hover:underline focus:outline-none"
         >
           View project
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </Link>
@@ -78,20 +77,13 @@ const TestimonialCard = ({ testimonial, isExpanded, onToggleExpand }) => {
 };
 
 const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedCardId, setExpandedCardId] = useState(null);
   const { title, subtitle, testimonials } = testimonialsData;
-  const list = testimonials.filter((t) => t.featured);
-  const total = list.length;
-
-  const cardsPerView = 1;
-  const maxIndex = Math.max(0, total - cardsPerView);
-
-  const goPrev = () => setCurrentIndex((i) => (i <= 0 ? maxIndex : i - 1));
-  const goNext = () => setCurrentIndex((i) => (i >= maxIndex ? 0 : i + 1));
+  const featured = testimonials.filter((t) => t.featured);
+  const list = featured.slice(0, 3);
 
   return (
-    <section className="section-padding bg-gray-50 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-[#FBF9F6] overflow-hidden">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -100,75 +92,38 @@ const TestimonialsSection = () => {
           transition={motionTransition.default}
           className="text-center mb-12 md:mb-16"
         >
-          <p className="text-xs md:text-sm tracking-[0.2em] text-gray-500 uppercase mb-2">
+          <p
+            className="text-xs md:text-sm tracking-[0.25em] uppercase mb-2 font-medium"
+            style={{ color: '#942e06' }}
+          >
             {subtitle}
           </p>
-          <h2 className="heading-lg">{title}</h2>
+          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">
+            {title}
+          </h2>
         </motion.div>
 
-        <div className="relative max-w-2xl mx-auto">
-          <div className="overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -24 }}
-                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <TestimonialCard
-                  testimonial={list[currentIndex]}
-                  isExpanded={expandedCardId === list[currentIndex]?.id}
-                  onToggleExpand={() =>
-                    setExpandedCardId((prev) =>
-                      prev === list[currentIndex]?.id ? null : list[currentIndex]?.id
-                    )
-                  }
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {total > 1 && (
-            <>
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label="Previous testimonial"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 w-10 h-10 rounded-full border-2 border-primary-600 bg-white text-primary-600 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600/40 z-10"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label="Next testimonial"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 w-10 h-10 rounded-full border-2 border-primary-600 bg-white text-primary-600 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600/40 z-10"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </>
-          )}
-
-          {total > 1 && (
-            <div className="flex justify-center gap-2 mt-6">
-              {list.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setCurrentIndex(i)}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    i === currentIndex ? 'bg-primary-600' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {list.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ ...motionTransition.default, delay: index * 0.08 }}
+              className="min-w-0"
+            >
+              <TestimonialCard
+                testimonial={testimonial}
+                isExpanded={expandedCardId === testimonial.id}
+                onToggleExpand={() =>
+                  setExpandedCardId((prev) =>
+                    prev === testimonial.id ? null : testimonial.id
+                  )
+                }
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

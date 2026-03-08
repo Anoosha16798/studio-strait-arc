@@ -28,7 +28,7 @@ const Projects = () => {
     >
       <div className="container-custom">
         <motion.header
-          className="text-center mb-15"
+          className="text-center pt-4 mb-15"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}

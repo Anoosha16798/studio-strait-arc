@@ -23,19 +23,19 @@
 }
 
 @layer components {
-  /* TIGHTER HORIZONTAL MARGINS: Matching your requested standard padding */
+  /* Same horizontal padding (1.5rem) on all screen sizes—no extra padding on large screens */
   .container-custom {
-    max-width: 1400px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  @media (min-width: 1024px) {
+  /* On very large viewports, let content scale with screen so side gaps stay proportional (like laptop) */
+  @media (min-width: 1800px) {
     .container-custom {
-      padding-left: 3rem;
-      padding-right: 3rem;
+      max-width: 92vw;
     }
   }
 
@@ -87,6 +87,11 @@
   /* Content starts below fixed header */
   .pt-header {
     padding-top: var(--header-height);
+  }
+
+  /* Slightly more top padding so content doesn’t sit under header */
+  .pt-header-content {
+    padding-top: calc(var(--header-height) + 0.75rem);
   }
 
   @media (min-width: 1024px) {

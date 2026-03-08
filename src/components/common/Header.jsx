@@ -50,7 +50,7 @@ const Header = () => {
     <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
-        isScrolled ? "py-2" : "py-4"
+        isScrolled ? "pt-4 pb-2" : "pt-4 pb-0"
       }`}
       style={{ background: '#fff' }}
     >
