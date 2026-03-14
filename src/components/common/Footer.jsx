@@ -32,16 +32,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand Section */}
           <motion.div className="lg:col-span-1" variants={staggerItem} transition={motionTransition.default}>
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
+            <Link to="/" className="flex items-center mb-6 group">
               <img
-                src="/images/logo_icon/SA-Logo_White.png"
-                alt="Studio Strait Arc Icon"
-                className="h-16 w-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                src="/images/logo/White.svg"
+                alt="Studio Strait Arc"
+                className="h-12 w-auto max-h-14 object-contain object-left group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="flex flex-col justify-center leading-none">
-                <span className="text-white text-xl font-serif font-bold tracking-tight">Studio</span>
-                <span className="text-white text-xl font-serif font-bold tracking-tight">Strait Arc</span>
-              </div>
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
            Studio Strait Arc was found on a simple yet powerful belief that every space should tell a story.

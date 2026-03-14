@@ -27,8 +27,8 @@ export default {
           white: '#FFFFFF',
         },
         fontFamily: {
-          serif: ['Playfair Display', 'serif'],
-          sans: ['Inter', 'sans-serif']
+          sans: ['Axiforma', 'sans-serif'],
+          serif: ['Axiforma', 'sans-serif']
         }
       },
     },

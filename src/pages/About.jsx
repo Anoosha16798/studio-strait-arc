@@ -118,13 +118,13 @@ const FounderSection = ({ founder }) => {
             viewport={viewport}
             transition={motionTransition.default}
           >
-            {/* Style 1: Serif (Playfair) – headings only */}
+            {/* Headings – Axiforma */}
             <p className="font-serif text-xs tracking-[0.2em] text-gray-500 uppercase mb-4">
               Founder Story
             </p>
             <h2 className="font-serif heading-lg mb-2 text-gray-900">{founder.name}</h2>
             <p className="font-serif text-lg text-gray-600 mb-6">{founder.title}</p>
-            {/* Style 2: Sans (Inter) – all body text, no italic */}
+            {/* Body – Axiforma */}
             <p className="font-sans text-lg text-gray-700 mb-8 leading-relaxed border-l-2 border-primary-600/30 pl-5 not-italic">
               "{founder.quote}"
             </p>

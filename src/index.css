@@ -9,11 +9,11 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: Inter, sans-serif;
+    font-family: 'Axiforma', sans-serif;
     color: #2D2D2D;
     background-color: #FFFFFF;
   }
-  h1, h2, h3, h4, h5, h6 { font-family: Playfair Display, serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Axiforma', sans-serif; }
 }
 
 @layer utilities {
@@ -106,7 +106,7 @@
   /* REFINED TYPOGRAPHY: Scaling down "Craft" and other headers */
   .heading-xl {
     font-size: 1.5rem; /* Compact for mobile */
-    font-family: Playfair Display, serif;
+    font-family: 'Axiforma', sans-serif;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;

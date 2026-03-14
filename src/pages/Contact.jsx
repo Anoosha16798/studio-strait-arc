@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 import siteData from '../data/siteData.json';
 import { staggerContainer, staggerItem, motionTransition } from '../utils/motion';
@@ -99,6 +99,28 @@ const Contact = () => {
                 <p className="text-gray-600">{siteData.site.email}</p>
               </div>
             </div>
+
+            {(siteData.site.phones || []).length > 0 && (
+              <div className="flex items-start space-x-5">
+                <div className="flex-shrink-0 w-14 h-14 bg-primary-50 rounded-full flex items-center justify-center">
+                  <FaPhone className="text-primary-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-3">Call Us</h3>
+                  <div className="space-y-1">
+                    {(siteData.site.phones || []).map((phone) => (
+                      <a
+                        key={phone}
+                        href={`tel:+91${phone.replace(/\D/g, '')}`}
+                        className="block text-gray-600 hover:text-primary-600 transition-colors"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* Contact Form */}

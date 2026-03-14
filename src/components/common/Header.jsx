@@ -4,11 +4,17 @@ import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import SocialLinks from "./SocialLinks";
 
+const FULL_LOGO = "/images/logo/SA-3_Brown+Black.svg";
+const ICON_LOGO = "/images/logo_icon/SA-Logo_Brown.png";
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const location = useLocation();
   const headerRef = useRef(null);
+
+  const useFullLogo = FULL_LOGO && !logoError;
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -50,26 +56,37 @@ const Header = () => {
     <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
-        isScrolled ? "pt-4 pb-2" : "pt-4 pb-0"
+        isScrolled ? "pt-3 pb-1.5" : "pt-3 pb-0"
       }`}
       style={{ background: '#fff' }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src="/images/logo_icon/SA-Logo_Brown.png"
-              alt="Logo"
-              className="h-8 w-8 md:h-10 md:w-10 object-contain"
-            />
-            <div className="flex flex-col leading-none">
-              <span className="text-gray-700 text-[9px] md:text-[10px] font-medium tracking-wider uppercase">
-                Studio
-              </span>
-              <span className="text-gray-700 text-[9px] md:text-[10px] font-medium tracking-wider uppercase">
-                Strait Arc
-              </span>
-            </div>
+        <div className="flex items-center justify-between h-10">
+          <Link to="/" className="flex items-center h-full min-w-0 transition-opacity duration-300 hover:opacity-90">
+            {useFullLogo ? (
+              <img
+                src={FULL_LOGO}
+                alt="Studio Strait Arc"
+                className="h-full max-h-10 w-auto object-contain object-left"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <>
+                <img
+                  src={ICON_LOGO}
+                  alt=""
+                  className="h-8 w-8 md:h-10 md:w-10 object-contain flex-shrink-0"
+                />
+                <div className="flex flex-col leading-none ml-2">
+                  <span className="text-gray-700 text-[9px] md:text-[10px] font-medium tracking-wider uppercase">
+                    Studio
+                  </span>
+                  <span className="text-gray-700 text-[9px] md:text-[10px] font-medium tracking-wider uppercase">
+                    Strait Arc
+                  </span>
+                </div>
+              </>
+            )}
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-10">
