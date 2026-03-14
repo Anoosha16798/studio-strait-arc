@@ -6,6 +6,8 @@ import CTASection from '../components/home/CTASectio';
 import AboutHero from '../components/about/AboutHero';
 import { motionTransition, viewportOnce } from '../utils/motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { resolveMediaUrl } from '../utils/helpers';
+import SmartMedia from '../components/common/SmartMedia';
 
 const About = () => {
   useEffect(() => {
@@ -87,25 +89,24 @@ const FounderSection = ({ founder }) => {
 
   return (
     <section
-      className="section-padding min-h-[70vh] flex flex-col justify-center"
+      className="py-12 md:py-16 lg:py-20 flex flex-col justify-center"
       style={{
         background: 'linear-gradient(180deg, #FAF8F5 0%, #F5F0EB 50%, #F0EAE4 100%)',
       }}
     >
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewport}
             transition={motionTransition.default}
-            className="relative"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative overflow-hidden rounded-2xl mb-6">
-              <img
-                src={founder.image}
-                alt={founder.name}
-                className="w-full h-auto object-cover"
+            <div className="relative overflow-hidden rounded-2xl aspect-[3/4] max-w-md w-full">
+              <SmartMedia
+                src={resolveMediaUrl(founder.image, { width: 800 })}
+                isPriority={true}
               />
             </div>
 
@@ -117,17 +118,19 @@ const FounderSection = ({ founder }) => {
             viewport={viewport}
             transition={motionTransition.default}
           >
-            <p className="text-sm tracking-widest text-gray-500 uppercase mb-4">
+            {/* Style 1: Serif (Playfair) – headings only */}
+            <p className="font-serif text-xs tracking-[0.2em] text-gray-500 uppercase mb-4">
               Founder Story
             </p>
-            <h2 className="heading-lg mb-2">{founder.name}</h2>
-            <p className="text-gray-600 mb-6 text-lg">{founder.title}</p>
-            <p className="text-2xl text-gray-700 mb-8 italic font-light leading-relaxed">
+            <h2 className="font-serif heading-lg mb-2 text-gray-900">{founder.name}</h2>
+            <p className="font-serif text-lg text-gray-600 mb-6">{founder.title}</p>
+            {/* Style 2: Sans (Inter) – all body text, no italic */}
+            <p className="font-sans text-lg text-gray-700 mb-8 leading-relaxed border-l-2 border-primary-600/30 pl-5 not-italic">
               "{founder.quote}"
             </p>
-            <p className="text-gray-700 leading-relaxed mb-6 text-lg">{founder.bio}</p>
+            <p className="font-sans text-base text-gray-700 leading-relaxed mb-6">{founder.bio}</p>
             {founder.story.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-gray-600 leading-relaxed mb-4">
+              <p key={index} className="font-sans text-base text-gray-700 leading-relaxed mb-4">
                 {paragraph}
               </p>
             ))}
@@ -370,9 +373,9 @@ const ProcessGallerySection = () => {
   const viewport = viewportOnce;
   
   const processImages = [
-    { url: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&h=600&fit=crop', title: 'Design' },
-    { url: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop', title: 'Execution' },
-    { url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop', title: 'Completion' },
+    { url: 'Image_for_design_woiime', title: 'Design' },
+    { url: 'image_for_execution_luga2p', title: 'Execution' },
+    { url: 'image_for_completion_d6ehwz', title: 'Completion' },
   ];
 
   return (
@@ -408,10 +411,9 @@ const ProcessGallerySection = () => {
               transition={{ ...motionTransition.default, delay: index * 0.1 }}
               className="relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl group min-w-0"
             >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              <SmartMedia
+                src={resolveMediaUrl(image.url, { width: 1200 })}
+                isPriority={index === 0}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
                 <h3 className="text-white text-xl font-semibold">{image.title}</h3>

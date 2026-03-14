@@ -67,11 +67,11 @@ const ServicesPreview = () => {
               <h3 className="font-serif text-lg md:text-xl font-semibold text-gray-900 mb-1.5">
                 {step.main}
               </h3>
-              {step.sub && (
+              {/* {step.sub && (
                 <p className="text-sm text-gray-500 mb-3 max-w-[200px] mx-auto">
                   {step.sub}
                 </p>
-              )}
+              )} */}
               <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-[260px] mx-auto">
                 {step.description}
               </p>

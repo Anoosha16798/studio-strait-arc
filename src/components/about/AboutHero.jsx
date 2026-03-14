@@ -25,7 +25,7 @@ export default function AboutHero() {
 
       <ConstructionAmbience />
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 pt-6 pb-16 lg:pt-8 lg:pb-20">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 pt-8 pb-20 sm:pt-10 sm:pb-24 lg:pt-12 lg:pb-28">
         {/* Left: About Studio Design */}
         <motion.div
           className="flex-shrink-0 max-w-xl text-center lg:text-left"

@@ -4,7 +4,7 @@
       "tagline": "ARCHITECTURE INTERIOR",
       "description": "We design experiences and elevate lives.",
       "email": "studiostraitarc@gmail.com",
-      "phone": "+91 1234567890",
+      "phones": ["9902253473", "9901832242"],
       "address": {
         "line1": "#64, 4th cross Manjunath layout,  ",
         "line2": "RT nagar post",
@@ -15,7 +15,7 @@
       "hours": "Office hours Mon-Sat 10am - 7:00pm IST",
       "socialMedia": {
         "facebook": "https://facebook.com",
-        "instagram": "https://instagram.com",
+        "instagram": "https://www.instagram.com/straitarc_studio?igsh=MWZkOXZsYW95MXFtcw==",
         "linkedin": "https://linkedin.com",
         "youtube": "https://youtube.com",
         "pinterest": "https://pinterest.com"

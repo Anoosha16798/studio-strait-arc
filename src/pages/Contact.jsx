@@ -52,7 +52,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="pt-header pb-20 bg-white min-h-screen"
+      className="pt-header pb-16 md:pb-24 lg:pb-28 bg-white min-h-screen"
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -61,12 +61,12 @@ const Contact = () => {
         <motion.div
           variants={staggerItem}
           transition={motionTransition.default}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
         >
           <p className="text-xs md:text-sm tracking-[0.3em] uppercase mb-6 text-gray-500 pt-4">
             Get In Touch
           </p>
-          <h1 className="heading-xl mb-8">Let's Create Something Beautiful</h1>
+          <h1 className="heading-xl mb-2">Let's Create Something Beautiful</h1>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">

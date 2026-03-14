@@ -23,7 +23,7 @@
 }
 
 @layer components {
-  /* Same horizontal padding (1.5rem) on all screen sizes—no extra padding on large screens */
+  /* Responsive horizontal padding: comfortable on mobile → tablet → small/medium laptop → large */
   .container-custom {
     max-width: 1600px;
     margin-left: auto;
@@ -32,23 +32,74 @@
     padding-right: 1.5rem;
   }
 
-  /* On very large viewports, let content scale with screen so side gaps stay proportional (like laptop) */
-  @media (min-width: 1800px) {
+  @media (min-width: 640px) {
     .container-custom {
-      max-width: 92vw;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 
-  /* REDUCED SECTION SPACING: Drastically reduced to remove "empty white space" */
+  @media (min-width: 768px) {
+    .container-custom {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-custom {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  /* On very large viewports, let content scale with screen so side gaps stay proportional */
+  @media (min-width: 1800px) {
+    .container-custom {
+      max-width: 92vw;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  /* Section vertical spacing: balanced and responsive across breakpoints */
   .section-padding {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
   }
 
   @media (min-width: 768px) {
     .section-padding {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 
@@ -79,9 +130,25 @@
     .heading-lg { font-size: 1.75rem; }
   }
 
-  /* REDUCED COMPONENT GAPS */
+  /* Responsive component gaps for sections that use .gap-responsive */
   .gap-responsive {
     gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .gap-responsive { gap: 2rem; }
+  }
+
+  @media (min-width: 768px) {
+    .gap-responsive { gap: 2.25rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .gap-responsive { gap: 2.5rem; }
+  }
+
+  @media (min-width: 1280px) {
+    .gap-responsive { gap: 3rem; }
   }
 
   /* Content starts below fixed header */
@@ -92,9 +159,5 @@
   /* Slightly more top padding so content doesn’t sit under header */
   .pt-header-content {
     padding-top: calc(var(--header-height) + 0.75rem);
-  }
-
-  @media (min-width: 1024px) {
-    .gap-responsive { gap: 2.5rem; }
   }
 }

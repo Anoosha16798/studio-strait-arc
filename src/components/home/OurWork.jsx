@@ -57,7 +57,7 @@ const OurWork = () => {
                 className={`${layout.span} relative group transform-gpu`}
               >
                 <Link to={`/projects/${item.slug}`}>
-                  <div className={`w-full h-full ${layout.aspect} overflow-hidden rounded-sm bg-gray-50 isolate`}>
+                  <div className={`w-full h-full ${layout.aspect} overflow-hidden rounded-xl md:rounded-sm bg-gray-50 isolate`}>
                     <SmartMedia
                       src={resolveMediaUrl(item.url, {
                         width: 1600,

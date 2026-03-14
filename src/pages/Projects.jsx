@@ -21,14 +21,14 @@ const Projects = () => {
 
   return (
     <motion.div
-      className="pt-header pb-20 bg-white min-h-screen"
+      className="pt-header pb-16 md:pb-24 lg:pb-28 bg-white min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="container-custom">
         <motion.header
-          className="text-center pt-4 mb-15"
+          className="text-center pt-6 md:pt-8 mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}

@@ -8,15 +8,12 @@ const HeroSection = () => {
 
   const heroImage = resolveMediaUrl('1_n8q0ih', { width: 2000 });
 
-  // Full-screen hero image; header floats on top
-  const heroMinHeight = '100vh';
-
   return (
     <section className="bg-white overflow-hidden relative z-0">
-      {/* Full-bleed hero: spans entire viewport width */}
+      {/* Full-bleed hero: image covers full viewport on all screen sizes */}
       <motion.div
-        className="relative w-screen overflow-hidden shadow-lg transform-gpu isolate will-change-transform"
-        style={{ opacity, minHeight: heroMinHeight }}
+        className="relative w-full overflow-hidden shadow-lg transform-gpu isolate will-change-transform min-h-[100vh]"
+        style={{ opacity }}
       >
         <img
           src={heroImage}
@@ -32,9 +29,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute inset-0 flex items-end md:items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="container-custom p-4 md:p-10">
+          <div className="container-custom p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
             <div className="w-full max-w-3xl text-center mx-auto">
               <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
                 <span className="block">Craft Your Perfect</span>

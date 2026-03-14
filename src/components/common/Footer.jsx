@@ -28,7 +28,7 @@ const Footer = () => {
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent"></div>
 
-      <div className="container-custom py-16 md:py-20">
+      <div className="container-custom py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand Section */}
           <motion.div className="lg:col-span-1" variants={staggerItem} transition={motionTransition.default}>
@@ -77,12 +77,14 @@ const Footer = () => {
                 </svg>
                 <span>{siteData.site.email}</span>
               </a>
-              {/* <a href={`tel:${siteData.site.phone.replace(/\s/g, '')}`} className="text-white/80 hover:text-white transition-colors text-sm flex items-start gap-3 group">
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>{siteData.site.phone}</span>
-              </a> */}
+              {(siteData.site.phones || []).map((phone) => (
+                <a key={phone} href={`tel:+91${phone.replace(/\D/g, '')}`} className="text-white/80 hover:text-white transition-colors text-sm flex items-start gap-3 group">
+                  <svg className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>{phone}</span>
+                </a>
+              ))}
             </div>
           </motion.div>
 

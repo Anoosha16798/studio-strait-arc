@@ -2,7 +2,7 @@ export const BRAND_DATA = {
     logo: "/assets/SA-Logo_Black.png", // Ensure file is at public/assets/SA-Logo_Black.png
     name: "Studio Strait Arc",
     socials: [
-      { name: "Instagram", url: "https://instagram.com" },
+      { name: "Instagram", url: "https://www.instagram.com/straitarc_studio?igsh=MWZkOXZsYW95MXFtcw==" },
       { name: "LinkedIn", url: "https://linkedin.com" }
     ],
     contact: {

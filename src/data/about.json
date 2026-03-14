@@ -7,7 +7,7 @@
     "founder": {
       "name": "Meet Sachitra Ravichander",
       "title": "Architect & Interior Designer – Studio Strait Arc",
-      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop",
+      "image": "intro_to_principal_architect_image_hidm8c",
       "bio": "With a strong belief that design should move beyond trends and temporary aesthetics, Sachitra established the studio as a space where creativity is guided by clarity, purpose, and refined detailing. Her approach blends artistic sensitivity with practical precision, ensuring each project feels intentional and enduring.",
       "quote": "Design is not just what it looks like and feels like. Design is how it works.",
       "story": "For Sachitra, architecture and interiors are not just about how a space looks, but how it functions, evolves, and resonates with the people who experience it. Through Studio Strait Arc, she crafts environments that are timeless, personal, and carefully considered."
@@ -29,7 +29,7 @@
         {
           "id": "layer-3",
           "title": "Designing the Details",
-          "description": "This is where ideas turn into real, workable designs. We balance aesthetics with functionality making sure the space is not only beautiful, but also practical enough for everyday life (because stunning spaces should still survive Monday mornings)."
+          "description": "This is where ideas turn into real, workable designs. We balance aesthetics with functionality making sure the space is not only beautiful, but also practical enough for everyday life."
         },
         {
           "id": "layer-4",
