@@ -6,7 +6,7 @@ const HeroSection = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 500], [1, 0.4]);
 
-  const heroImage = resolveMediaUrl('1_n8q0ih', { width: 2000 });
+  const heroImage = resolveMediaUrl('1_n8q0ih_f6kyzy', { width: 2000 });
 
   return (
     <section className="bg-white overflow-hidden relative z-0">

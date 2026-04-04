@@ -1,4 +1,4 @@
-const CLOUDINARY_CLOUD_NAME = 'douxv8tbe';
+const CLOUDINARY_CLOUD_NAME = 'dyhdvtwdb';
 
 const buildCloudinaryUrl = (publicId, { width, quality = 'auto', resourceType = 'image' } = {}) => {
   if (!publicId) return '';
