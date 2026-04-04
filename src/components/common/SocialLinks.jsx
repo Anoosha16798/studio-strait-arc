@@ -17,6 +17,7 @@ const SocialLinks = ({ isLight = false }) => {
       {socialIcons.map(({ Icon, url, label }) => (
         <a
           key={label}
+          id={label === 'Instagram' ? 'instagram-btn' : undefined}
           href={url}
           target="_blank"
           rel="noopener noreferrer"

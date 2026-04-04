@@ -43,6 +43,8 @@ const Contact = () => {
       .then(() => {
         setStatus('success');
         form.reset();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submission', form_id: 'contact-form' });
       })
       .catch((err) => {
         setStatus('error');
@@ -108,9 +110,10 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-3">Call Us</h3>
                   <div className="space-y-1">
-                    {(siteData.site.phones || []).map((phone) => (
+                    {(siteData.site.phones || []).map((phone, i) => (
                       <a
                         key={phone}
+                        id={i === 0 ? 'call-btn' : undefined}
                         href={`tel:+91${phone.replace(/\D/g, '')}`}
                         className="block text-gray-600 hover:text-primary-600 transition-colors"
                       >
@@ -171,6 +174,7 @@ const Contact = () => {
 
               <div className="space-y-3">
                 <button
+                  id="contact-submit"
                   type="submit"
                   disabled={status === 'sending'}
                   className="w-full py-4 bg-primary-600 text-white font-medium rounded-full hover:bg-primary-700 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed"
