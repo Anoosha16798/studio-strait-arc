@@ -39,7 +39,7 @@ const HeroSection = () => {
               </h1>
 
               <div className="mt-5 flex justify-center">
-                <Button variant="primary" size="sm" to="/contact">
+                <Button variant="primary" size="sm" to="/contact" id="hero-cta-btn">
                   Start Your Project
                 </Button>
               </div>

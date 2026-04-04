@@ -40,6 +40,7 @@ const CTASection = ({
               variant={darkBackground ? 'secondary' : 'primary'}
               size="lg"
               to="/contact"
+              id="cta-contact-btn"
             >
               {buttonText}
             </Button>

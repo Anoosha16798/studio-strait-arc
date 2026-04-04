@@ -77,14 +77,15 @@ const ProjectDetailPage = () => {
               return (
                 <motion.div
                   key={index}
+                  id={`project-media-${index + 1}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: (index % 11) * 0.05 }}
                   className={`relative cursor-pointer overflow-hidden rounded-sm shadow-sm group ${layout.span}`}
-                  onClick={() => { 
-                    setCarouselStartIndex(index); 
-                    setShowCarousel(true); 
+                  onClick={() => {
+                    setCarouselStartIndex(index);
+                    setShowCarousel(true);
                   }}
                   onMouseEnter={() => preloadCarouselImage(index)}
                 >

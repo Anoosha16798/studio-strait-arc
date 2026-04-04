@@ -56,7 +56,7 @@ const OurWork = () => {
                 transition={{ ...motionTransition.default, delay: index * 0.06 }}
                 className={`${layout.span} relative group transform-gpu`}
               >
-                <Link to={`/projects/${item.slug}`}>
+                <Link id={`home-work-${item.slug}-${index + 1}`} to={`/projects/${item.slug}`}>
                   <div className={`w-full h-full ${layout.aspect} overflow-hidden rounded-xl md:rounded-sm bg-gray-50 isolate`}>
                     <SmartMedia
                       src={resolveMediaUrl(item.url, {
@@ -74,7 +74,7 @@ const OurWork = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <Button variant="outline" size="md" to="/projects">View All Projects</Button>
+          <Button variant="outline" size="md" to="/projects" id="view-projects-btn">View All Projects</Button>
         </div>
       </div>
     </section>

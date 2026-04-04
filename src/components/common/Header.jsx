@@ -117,7 +117,7 @@ const Header = () => {
             <SocialLinks />
           </div>
 
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-gray-700">
+          <button id="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-gray-700">
             {isMobileMenuOpen ? <HiX size={20} /> : <HiMenu size={20} />}
           </button>
         </div>

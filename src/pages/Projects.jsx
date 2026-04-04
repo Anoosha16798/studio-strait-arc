@@ -54,7 +54,7 @@ const Projects = () => {
                 {/* Image Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   {project.media && [project.media[0]?.url, project.media[1]?.url].map((url, i) => (
-                    <Link key={i} to={`/projects/${project.slug}`} className="aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
+                    <Link key={i} id={`project-${project.slug}-img-${i + 1}`} to={`/projects/${project.slug}`} className="aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
                       <SmartMedia 
                         src={resolveMediaUrl(url, { width: 1400 })} 
                         isPriority={idx === 0 && i === 0} 
@@ -79,7 +79,7 @@ const Projects = () => {
                           {expandedQuoteId === project.id ? 'Show less' : 'Read more'}
                         </button>
                       )}
-                      <Link to={`/projects/${project.slug}`} className="flex items-center gap-3 md:gap-4 justify-center md:justify-start mt-auto">
+                      <Link id={`project-${project.slug}-link`} to={`/projects/${project.slug}`} className="flex items-center gap-3 md:gap-4 justify-center md:justify-start mt-auto">
                         <span className="font-bold text-base md:text-2xl uppercase text-primary-600">{project.title}</span>
                         <span className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-primary-600 text-primary-600 flex items-center justify-center transition-all hover:bg-primary-600 hover:text-white">→</span>
                       </Link>
@@ -113,6 +113,7 @@ const Projects = () => {
         {hasMoreProjects && (
           <div className="flex justify-center mt-12">
             <motion.button
+              id="load-more-btn"
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
