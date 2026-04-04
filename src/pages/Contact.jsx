@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 import siteData from '../data/siteData.json';
 import { staggerContainer, staggerItem, motionTransition } from '../utils/motion';
@@ -120,6 +120,16 @@ const Contact = () => {
                         {phone}
                       </a>
                     ))}
+                    <a
+                      id="whatsapp-btn"
+                      href={`https://wa.me/91${(siteData.site.phones[0] || '').replace(/\D/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-gray-600 hover:text-green-600 transition-colors mt-2"
+                    >
+                      <FaWhatsapp className="w-4 h-4" />
+                      WhatsApp Us
+                    </a>
                   </div>
                 </div>
               </div>

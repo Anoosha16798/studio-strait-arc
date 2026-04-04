@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import SocialLinks from './SocialLinks';
 import siteData from '../../data/siteData.json';
@@ -81,6 +82,16 @@ const Footer = () => {
                   <span>{phone}</span>
                 </a>
               ))}
+              <a
+                id="whatsapp-btn"
+                href={`https://wa.me/91${(siteData.site.phones[0] || '').replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors text-sm flex items-center gap-3 group"
+              >
+                <FaWhatsapp className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <span>WhatsApp Us</span>
+              </a>
             </div>
           </motion.div>
 
