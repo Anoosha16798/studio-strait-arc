@@ -374,8 +374,8 @@ const ProcessGallerySection = () => {
   
   const processImages = [
     { url: 'Image_for_design_woiime_yaf9jg', title: 'Design' },
-    { url: 'image_for_execution_luga2p_rsj6n4_i4k27b', title: 'Execution' },
-    { url: 'image_for_completion_d6ehwz_aifet7', title: 'Completion' },
+    { url: 'image_for_execution_luga2p_rsj6n4', title: 'Execution' },
+    { url: 'image_for_completion_d6ehwz_aifet7', title: 'Completion' }
   ];
 
   return (
