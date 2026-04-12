@@ -64,46 +64,50 @@ const Projects = () => {
                 </div>
 
                 {/* Mixed Content Row */}
-                <div className={`flex flex-col lg:grid gap-6 md:gap-8 ${isAlt ? 'lg:grid-cols-[1.4fr_2.6fr]' : 'lg:grid-cols-[2.6fr_1.4fr]'}`}>
-                  <div className={`${isAlt ? 'lg:order-2' : ''} flex flex-col justify-between min-h-0`}>
-                    <div className="md:border-l-2 border-primary-600/20 md:pl-8 pl-0 mb-6 md:mb-8 lg:mb-0 flex flex-col min-h-0">
-                      <p className={`text-base md:text-lg text-gray-700 font-serif italic mb-3 md:mb-4 text-center md:text-left leading-relaxed ${expandedQuoteId === project.id ? '' : 'line-clamp-4'}`}>
-                        "{testimonial.quote}"
-                      </p>
-                      {testimonial.quote && testimonial.quote.length > 200 && (
-                        <button
-                          type="button"
-                          onClick={() => setExpandedQuoteId((prev) => (prev === project.id ? null : project.id))}
-                          className="text-xs text-gray-500 hover:text-primary-600 transition-colors mb-4 md:mb-6 text-center md:text-left focus:outline-none"
-                        >
-                          {expandedQuoteId === project.id ? 'Show less' : 'Read more'}
-                        </button>
+                {(() => {
+                  const videoSrc = project.media?.[3]?.url || project.autoplayVideo;
+                  const img2Src = project.media?.[2]?.url;
+                  const hasVideo = !!videoSrc;
+                  return (
+                    <div className={`flex flex-col lg:grid gap-6 md:gap-8 ${hasVideo ? (isAlt ? 'lg:grid-cols-[1.4fr_2.6fr]' : 'lg:grid-cols-[2.6fr_1.4fr]') : 'lg:grid-cols-1'}`}>
+                      <div className={`${hasVideo && isAlt ? 'lg:order-2' : ''} flex flex-col justify-between min-h-0`}>
+                        <div className="md:border-l-2 border-primary-600/20 md:pl-8 pl-0 mb-6 md:mb-8 lg:mb-0 flex flex-col min-h-0">
+                          <p className={`text-base md:text-lg text-gray-700 font-serif italic mb-3 md:mb-4 text-center md:text-left leading-relaxed ${expandedQuoteId === project.id ? '' : 'line-clamp-4'}`}>
+                            "{testimonial.quote}"
+                          </p>
+                          {testimonial.quote && testimonial.quote.length > 200 && (
+                            <button
+                              type="button"
+                              onClick={() => setExpandedQuoteId((prev) => (prev === project.id ? null : project.id))}
+                              className="text-xs text-gray-500 hover:text-primary-600 transition-colors mb-4 md:mb-6 text-center md:text-left focus:outline-none"
+                            >
+                              {expandedQuoteId === project.id ? 'Show less' : 'Read more'}
+                            </button>
+                          )}
+                          <Link id={`project-${project.slug}-link`} to={`/projects/${project.slug}`} className="flex items-center gap-3 md:gap-4 justify-center md:justify-start mt-auto">
+                            <span className="font-bold text-base md:text-2xl uppercase text-primary-600">{project.title}</span>
+                            <span className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-primary-600 text-primary-600 flex items-center justify-center transition-all hover:bg-primary-600 hover:text-white">→</span>
+                          </Link>
+                        </div>
+                        {img2Src && (
+                          <Link to={`/projects/${project.slug}`} className={`rounded-lg overflow-hidden shadow-md ${hasVideo ? 'aspect-[5/3]' : 'aspect-[16/7] mt-6'}`}>
+                            <SmartMedia src={resolveMediaUrl(img2Src, { width: 1400 })} isPriority={idx === 0} />
+                          </Link>
+                        )}
+                      </div>
+                      {hasVideo && (
+                        <div className="aspect-[3/4] md:aspect-[3/5] rounded-lg overflow-hidden shadow-lg">
+                          <SmartMedia
+                            src={resolveMediaUrl(videoSrc, { width: 1200, resourceType: 'video' })}
+                            poster={resolveMediaUrl(project.thumbnail || '', { width: 800 })}
+                            type="video"
+                            isPriority={idx === 0}
+                          />
+                        </div>
                       )}
-                      <Link id={`project-${project.slug}-link`} to={`/projects/${project.slug}`} className="flex items-center gap-3 md:gap-4 justify-center md:justify-start mt-auto">
-                        <span className="font-bold text-base md:text-2xl uppercase text-primary-600">{project.title}</span>
-                        <span className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-primary-600 text-primary-600 flex items-center justify-center transition-all hover:bg-primary-600 hover:text-white">→</span>
-                      </Link>
                     </div>
-                    {project.media &&
-                    <Link to={`/projects/${project.slug}`} className="aspect-[5/3] rounded-lg overflow-hidden shadow-md">
-                      <SmartMedia src={resolveMediaUrl(project.media && project.media[2] && project.media[2]?.url, { width: 1400 })} isPriority={idx === 0} />
-                    </Link>
-          }
-                  </div>
-                  {project.media &&
-                  <div className="aspect-[3/4] md:aspect-[3/5] rounded-lg overflow-hidden shadow-lg">
-                    <SmartMedia 
-                      src={resolveMediaUrl(
-                        project.media && project.media[3] && project.media[3]?.url || project.autoplayVideo, 
-                        { width: 1200, resourceType: 'video' }
-                      )} 
-                      poster={resolveMediaUrl(project.thumbnail ? project.thumbnail : '', { width: 800 })} 
-                      type="video" 
-                      isPriority={idx === 0} 
-                    />
-                  </div>
-          }
-                </div>
+                  );
+                })()}
                 {idx < visibleProjects.length - 1 && <div className="w-full h-px bg-gray-100 mt-8" />}
               </motion.section>
             );

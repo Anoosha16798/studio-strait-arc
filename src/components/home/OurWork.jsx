@@ -7,11 +7,7 @@ import { resolveMediaUrl } from '../../utils/helpers';
 import { motionTransition, viewportOnce } from '../../utils/motion';
 
 const OurWork = () => {
-  // Use only the first 2 projects, but keep the original collage layout
-  const limitedProjects = projectsData.projects.slice(0, 2);
-  const allMedia = limitedProjects.flatMap(project =>
-    (project.media || []).map(m => ({ ...m, slug: project.slug }))
-  ).slice(0, 11);
+  const allMedia = (projectsData.homepageMedia || []).slice(0, 11);
 
   // Original 11-slot collage layout
   const gridMapping = [
