@@ -14,7 +14,7 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { hero, founder, values, team, stats } = aboutData;
+  const { hero, founder, values, team } = aboutData;
 
   return (
     <motion.div
@@ -33,7 +33,7 @@ const About = () => {
 
       {/* About content – full width, gradient sections */}
       <FounderSection founder={founder} />
-      <StatsSection stats={stats} />
+      <QuoteSection />
       <LayersSection />
       <ValuesSection values={values} />
       <CTASection
@@ -141,12 +141,12 @@ const FounderSection = ({ founder }) => {
   );
 };
 
-const StatsSection = ({ stats }) => {
+const QuoteSection = () => {
   const viewport = viewportOnce;
 
   return (
     <section
-      className="section-padding min-h-[40vh] flex flex-col justify-center relative overflow-hidden"
+      className="py-8 md:py-10 lg:py-12 min-h-[24vh] flex flex-col justify-center relative overflow-hidden"
       style={{
         background: 'linear-gradient(165deg, #942e06 0%, #a63a10 40%, #8c2a05 100%)',
       }}
@@ -160,29 +160,15 @@ const StatsSection = ({ stats }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={motionTransition.default}
-          className="text-center mb-12"
+          className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="heading-lg text-white">{stats.title}</h2>
+          <p className="font-sans text-xl md:text-2xl font-medium text-white leading-snug">
+            "We design spaces that do more than look beautiful - they feel effortless to live in."
+          </p>
+          <p className="font-sans text-white/90 text-sm md:text-base mt-4 tracking-[0.08em] uppercase">
+            -Sachitra Ravichander
+          </p>
         </motion.div>
-
-        {/* Centered grid: 3 items perfectly centered */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto justify-items-center">
-          {stats.items.map((stat, index) => (
-            <motion.div
-              key={stat.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewport}
-              transition={{ ...motionTransition.default, delay: index * 0.1 }}
-              className="text-center group w-full max-w-xs"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
-                {stat.number}
-              </div>
-              <div className="text-white/80 text-lg">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-400 to-transparent opacity-60" />
