@@ -11,10 +11,10 @@
     { "type": "image", "url": "2_rwz8hi_hhbonn",               "slug": "three-fold-groove" },
     { "type": "image", "url": "3_far5lq_paqknm",               "slug": "three-fold-groove" },
     { "type": "video", "url": "V1_yzwwji_bjzomf",              "slug": "three-fold-groove" },
-    { "type": "image", "url": "THREE_FOLD_GROOVE_10_mjwfzk_tilyrp", "slug": "three-fold-groove" },
-    { "type": "image", "url": "THREE_FOLD_GROOVE_5_tprxss_spp6l8", "slug": "three-fold-groove" },
-    { "type": "image", "url": "3_rtce3t_fllnbs",               "slug": "oasis" },
-    { "type": "video", "url": "v1_hhonws_qieiul",              "slug": "oasis" }
+    { "type": "image", "url": "_DSC6124-HDR_ucgi51", "slug": "modern-minimalist-living" },
+    { "type": "image", "url": "_DSC6307-HDR_nclkfo", "slug": "three-fold-groove" },
+    { "type": "image", "url": "_DSC6352-HDR_sn9mlv",               "slug": "modern-minimalist-living" },
+    { "type": "image", "url": "_DSC5464-HDR_u2r96q",              "slug": "oasis" }
   ],
 
   "projects": [
@@ -59,6 +59,41 @@
     },
     {
       "id": "project-2",
+      "title": "Srujana",
+      "slug": "modern-minimalist-living",
+      "category": "residential",
+      "location": "Pune, India",
+      "year": "2023",
+      "thumbnail": "/assets/srujana/1.png",
+      "featured": true,
+      "description": "Srujana is a traditional home designed for a couple and their son, rooted in their love for art, culture, and heritage. The space celebrates vibrant colours, rich textures, and timeless brass elements, creating an atmosphere that feels warm, expressive, and deeply personal. Thoughtfully layered details bring together tradition and artistry in a refined, contemporary way.",
+      "details": {
+        "area": "1200 sq ft",
+        "style": "Contemporary Minimalist",
+        "duration": "2 months",
+        "client": "Private Residence"
+      },
+      "media": [
+        { "type": "image", "url": "_DSC6124-HDR_ucgi51", "caption": "Living room with natural light" },
+        { "type": "image", "url": "_DSC5464-HDR_u2r96q" },
+        { "type": "image", "url": "_DSC6307-HDR_nclkfo", "caption": "Bedroom seating area" }
+      ],
+      "detailMedia": [
+        { "type": "image", "url": "_DSC6139-HDR_gyxwf4" },
+        { "type": "image", "url": "_DSC6427-HDR_tnrfdi" },
+        { "type": "image", "url": "_DSC6312-HDR_fupcj1" },
+        { "type": "image", "url": "_DSC5619-HDR_pw0h2q" },
+        { "type": "image", "url": "_DSC5499-HDR_qv6gny" },
+        { "type": "image", "url": "_DSC5694-HDR_klx8mz" },
+        { "type": "image", "url": "_DSC6342-HDR_dcdvb4" },
+        { "type": "image", "url": "_DSC6412-HDR_dh1hf1" },
+        { "type": "image", "url": "_DSC6352-HDR_sn9mlv" },
+        { "type": "image", "url": "_DSC6312-HDR_fupcj1" },
+        { "type": "image", "url": "_DSC6442-HDR_qzy9fl" }
+      ]
+    },
+    {
+      "id": "project-3",
       "title": "Oasis",
       "slug": "oasis",
       "category": "residential",
@@ -95,28 +130,6 @@
         { "type": "video", "url": "OASIS_1_uh5hsv_cds1qx" },
         { "type": "image", "url": "OASIS_2_sr1z6b_ebosoy" },
         { "type": "image", "url": "OASIS_1_s4u08a_sejtpa" }
-      ]
-    },
-    {
-      "id": "project-3",
-      "title": "Srujana",
-      "slug": "modern-minimalist-living",
-      "category": "residential",
-      "location": "Pune, India",
-      "year": "2023",
-      "thumbnail": "/assets/srujana/1.png",
-      "featured": true,
-      "description": "Srujana is a traditional home designed for a couple and their son, rooted in their love for art, culture, and heritage. The space celebrates vibrant colours, rich textures, and timeless brass elements, creating an atmosphere that feels warm, expressive, and deeply personal. Thoughtfully layered details bring together tradition and artistry in a refined, contemporary way.",
-      "details": {
-        "area": "1200 sq ft",
-        "style": "Contemporary Minimalist",
-        "duration": "2 months",
-        "client": "Private Residence"
-      },
-      "media": [
-        { "type": "image", "url": "/assets/srujana/1.png", "caption": "Living room with natural light" },
-        { "type": "image", "url": "2_mq8pcb_xitphz" },
-        { "type": "image", "url": "3_qz74zh_d8rmgt", "caption": "Bedroom seating area" }
       ]
     },
     {
